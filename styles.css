@@ -1888,8 +1888,17 @@ ul {
         --header-height: 75px;
     }
 
+    .container {
+        padding: 0 1.5rem;
+    }
+
     .section {
         padding: 5rem 0;
+    }
+
+    .section-title {
+        font-size: 2.1rem;
+        margin-bottom: 1.5rem;
     }
 
     .hero-title {
@@ -1909,6 +1918,18 @@ ul {
         margin: 0 auto;
     }
 
+    .asymmetric-image-grid {
+        height: 340px;
+    }
+
+    .experience-img-wrapper {
+        height: 240px;
+    }
+
+    .aesthetic-img-item {
+        height: 200px;
+    }
+
     .quick-booking-form {
         grid-template-columns: 1fr;
         gap: 1.25rem;
@@ -1921,6 +1942,10 @@ ul {
 
     .grid-3-col {
         grid-template-columns: 1fr;
+    }
+
+    .modal-overlay {
+        padding: 0.75rem;
     }
 
     .modal-grid {
@@ -1968,5 +1993,9 @@ ul {
         flex-direction: column;
         gap: 1.5rem;
         text-align: center;
+    }
+
+    .desktop-br {
+        display: none;
     }
 }
