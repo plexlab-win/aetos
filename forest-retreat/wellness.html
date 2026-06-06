@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAND AETOS — Wellness Spa</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta id="seo-meta-desc" name="description" content="태고의 소나무 숲속에서 누리는 천연 온천 스파 리포트 그랜드 에이토스. 웰니스 요가, 지열 자쿠지가 완비된 독채 빌라 예약을 조율해 보세요.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+KR:wght@200;300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Common Header / GNB -->
+    <header class="header" id="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text-top">GRAND AETOS</span>
+                <span class="logo-text-bottom">FOREST RETREAT</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav-about">브랜드 철학</a></li>
+                    <li><a href="suites.html" class="nav-link" data-i18n="nav-rooms">객실 안내</a></li>
+                    <li><a href="dining.html" class="nav-link" data-i18n="nav-dining">다이닝</a></li>
+                    <li><a href="wellness.html" class="nav-link active" data-i18n="nav-wellness">웰니스 온천</a></li>
+                    <li><a href="reserve.html" class="nav-link" data-i18n="nav-reserve">실시간 예약</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ko">KR</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <a href="reserve.html" class="btn btn-outline btn-sm" data-i18n="btn-book">예약하기</a>
+                <button class="mobile-toggle-btn" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-close-btn" id="mobile-menu-close">&times;</button>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link" data-i18n="nav-about">브랜드 철학</a></li>
+            <li><a href="suites.html" class="mobile-nav-link" data-i18n="nav-rooms">객실 안내</a></li>
+            <li><a href="dining.html" class="mobile-nav-link" data-i18n="nav-dining">다이닝</a></li>
+            <li><a href="wellness.html" class="mobile-nav-link" data-i18n="nav-wellness">웰니스 온천</a></li>
+            <li><a href="reserve.html" class="mobile-nav-link" data-i18n="nav-reserve">실시간 예약</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ko">KR</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <p class="mobile-contact-info" data-i18n="footer-addr-val">남해군 남면 해안 절벽로 123 (오션 비스타)</p>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banner-section" style="background-image: linear-gradient(rgba(14, 29, 21, 0.55), rgba(14, 29, 21, 0.75)), url('../assets/spa.png');">
+        <div class="container text-center">
+            <span class="banner-tag reveal" data-i18n="exp3-tag">Wellness & Spa</span>
+            <h1 class="banner-title reveal" data-i18n="nav-wellness">웰니스 온천</h1>
+            <p class="banner-subtitle reveal" data-i18n="exp-subtitle">유기농 야채 정원에서 엄선한 가스트로노미 다이닝과 대자연 속 웰니스 온천을 통해 지친 세포 하나하나를 일깨워 보십시오.</p>
+        </div>
+    </section>
+
+    <!-- Section 1: Ananda Spa -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2-col-asymmetric">
+                <div class="reveal">
+                    <span class="section-tag" data-i18n="exp3-tag">Wellness & Spa</span>
+                    <h2 class="section-title" data-i18n="exp3-title">아난다 리추얼 온천 스파</h2>
+                    <div class="section-divider"></div>
+                    <p class="about-desc" data-i18n="exp3-desc">숙련된 스파 마스터의 따뜻한 현무암 리추얼 세션과 오가닉 허브 티, 잔잔한 명상 호흡이 어우러진 시그니처 바디 힐링 스파 프로그램입니다.</p>
+                    <p class="about-desc">지하 800미터 암반에서 직수 공급되는 유황 천연 온천수 자쿠지에서 긴장을 완화하고, 맞춤형 식물성 에센셜 오일과 아로마 테라피를 통해 무뎌진 감각을 다시 일깨워 드립니다. 마사지 이후 프라이빗 테라스에서 새소리와 계곡 소리를 들으며 휴식하는 다도 세션이 기본 포함됩니다.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <span class="exp-detail" style="font-size: 0.85rem;"><i class="fa-solid fa-clock"></i> <span data-i18n="exp3-hours">Spa Hours: 08:00 - 21:00</span></span>
+                        <span class="exp-detail" style="font-size: 0.85rem; margin-top: 0.5rem;"><i class="fa-solid fa-tag"></i> <span>온천 테라피 패키지 선택 가능</span></span>
+                    </div>
+                </div>
+                
+                <div class="asymmetric-image-grid reveal">
+                    <div class="asymmetric-img-main" style="background-image: url('../assets/spa.png');"></div>
+                    <div class="asymmetric-img-sub" style="background-image: url('../assets/room2.png');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Heated Pool -->
+    <section class="section bg-dark">
+        <div class="container">
+            <div class="grid-2-col">
+                <div class="asymmetric-image-grid reveal" style="height: 480px;">
+                    <div class="asymmetric-img-main" style="width: 90%; height: 90%; background-image: url('../assets/room3.png');"></div>
+                    <div class="asymmetric-img-sub" style="width: 45%; height: 45%; background-image: url('../assets/hero.png');"></div>
+                </div>
+                
+                <div class="reveal">
+                    <span class="section-tag" data-i18n="exp2-tag">SWIMMING POOL</span>
+                    <h2 class="section-title" style="color: var(--color-linen);" data-i18n="exp2-title">포레스트 히티드 온천풀</h2>
+                    <div class="section-divider"></div>
+                    <p class="about-desc" style="color: rgba(245, 244, 240, 0.7);" data-i18n="exp2-desc">피톤치드가 뿜어 나오는 소나무 캐노피 아래에서, 38도의 천연 온천수로 가득 찬 야외 온수풀에서 사계절 내내 온전한 쉼을 만끽하십시오.</p>
+                    <p class="about-desc" style="color: rgba(245, 244, 240, 0.7);">자연 지형을 훼손하지 않기 위해 계곡의 경사면을 따라 정교하게 건축된 인피니티 풀로, 사방이 울창한 잣나무와 소나무로 둘러싸여 있어 마치 숲 한가운데 맑은 호수 위에 떠 있는 듯한 해방감을 경험하게 됩니다. 야간에는 아름다운 무드 캔들 라이팅과 조명 속에서 로맨틱한 삼림 노천 온천을 즐길 수 있습니다.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <span class="exp-detail" style="color: var(--color-linen); font-size: 0.85rem;"><i class="fa-solid fa-clock"></i> <span data-i18n="exp2-hours">Operating: 09:00 - 21:00</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Sound Meditation & Yoga -->
+    <section class="section">
+        <div class="container text-center">
+            <span class="section-tag">Rituals</span>
+            <h2 class="section-title">자연의 리듬에 호흡을 맞추다</h2>
+            <div class="section-divider" style="margin: 0 auto 2rem auto;"></div>
+            <p class="section-subtitle" style="max-width: 750px;">
+                매일 아침 숲에서 시작되는 요가 세션과 저녁 노을을 바라보며 진행되는 네팔 싱잉볼 명상 리추얼. 바람이 대나무 숲을 흔드는 소리와 계곡 물소리, 싱잉볼의 은은한 잔향이 뇌파를 가장 평온한 상태로 유도하여 깊은 숙면과 스트레스 완화를 돕습니다.
+            </p>
+            
+            <div class="grid-2-col" style="margin-top: 4.5rem; text-align: left;">
+                <div class="reveal">
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary-green); margin-bottom: 1rem;">소나무 숲 모닝 요가</h3>
+                    <p class="about-desc">상쾌한 새벽 공기와 새들의 신호 속에 숲의 목재 데크에서 1:1 개인 레슨 혹은 소규모 그룹으로 진행되는 프라이빗 아사나 클래스입니다. 올바른 척추 정렬과 깊은 명상 호흡을 통해 숲의 피톤치드를 체내 가득 채워 세포의 재생을 촉진합니다.</p>
+                    <span class="exp-detail"><i class="fa-solid fa-clock"></i> <span>Morning Session: 07:00 - 08:30</span></span>
+                </div>
+                
+                <div class="reveal">
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary-green); margin-bottom: 1rem;">싱잉볼 명상 & 리차징</h3>
+                    <p class="about-desc">황동 싱잉볼과 벨의 주파수 울림이 몸의 수분과 공명하여 스트레스로 뭉친 근육을 부드럽게 이완시키고 지친 에너지 라인을 복구하는 신비로운 청각 치유 세션입니다. 해가 지는 개별 자쿠지 혹은 전용 명상실에서 진행됩니다.</p>
+                    <span class="exp-detail"><i class="fa-solid fa-clock"></i> <span>Sunset Session: 17:30 - 19:00</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">GRAND AETOS</h2>
+                    <p class="footer-tagline" data-i18n="footer-tagline">가장 평화롭고 고요한 시간, 거대하고 정교하게 조율된 오아시스 그랜드 에이토스.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4 class="footer-title" data-i18n="footer-explore-title">NAVIGATIONS</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav-about">브랜드 철학</a></li>
+                        <li><a href="suites.html" data-i18n="nav-rooms">객실 안내</a></li>
+                        <li><a href="dining.html" data-i18n="footer-nav-dining">파인 다이닝</a></li>
+                        <li><a href="wellness.html" data-i18n="footer-nav-spa">웰니스 스파</a></li>
+                        <li><a href="reserve.html" data-i18n="nav-reserve">실시간 예약</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-info">
+                    <h4 class="footer-title" data-i18n="footer-info-title">INFORMATION</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="policy-directions">오시는 길</a></li>
+                        <li><a href="#" data-i18n="policy-privacy">개인정보 처리방침</a></li>
+                        <li><a href="#" data-i18n="policy-terms">서비스 이용약관</a></li>
+                        <li><a href="#" data-i18n="policy-press">프레스 킷</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-title" data-i18n="footer-contact-title">LOCATION & CONTACT</h4>
+                    <p class="contact-item"><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-addr-val">남해군 남면 해안 절벽로 123 (오션 비스타)</span></p>
+                    <p class="contact-item"><i class="fa-solid fa-phone"></i> +82 (0)55-123-4567</p>
+                    <p class="contact-item"><i class="fa-solid fa-envelope"></i> concierge@aetos.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 GRAND AETOS. All Rights Reserved. <span data-i18n="footer-designed">DESIGNED FOR LUXURY REFERENCE SITE</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Mouse Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

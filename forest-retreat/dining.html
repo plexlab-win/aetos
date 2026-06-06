@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAND AETOS — Dining</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta id="seo-meta-desc" name="description" content="태고의 소나무 숲속에서 누리는 천연 온천 스파 리포트 그랜드 에이토스. 웰니스 요가, 지열 자쿠지가 완비된 독채 빌라 예약을 조율해 보세요.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+KR:wght@200;300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Common Header / GNB -->
+    <header class="header" id="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text-top">GRAND AETOS</span>
+                <span class="logo-text-bottom">FOREST RETREAT</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav-about">브랜드 철학</a></li>
+                    <li><a href="suites.html" class="nav-link" data-i18n="nav-rooms">객실 안내</a></li>
+                    <li><a href="dining.html" class="nav-link active" data-i18n="nav-dining">다이닝</a></li>
+                    <li><a href="wellness.html" class="nav-link" data-i18n="nav-wellness">웰니스 온천</a></li>
+                    <li><a href="reserve.html" class="nav-link" data-i18n="nav-reserve">실시간 예약</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ko">KR</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <a href="reserve.html" class="btn btn-outline btn-sm" data-i18n="btn-book">예약하기</a>
+                <button class="mobile-toggle-btn" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-close-btn" id="mobile-menu-close">&times;</button>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link" data-i18n="nav-about">브랜드 철학</a></li>
+            <li><a href="suites.html" class="mobile-nav-link" data-i18n="nav-rooms">객실 안내</a></li>
+            <li><a href="dining.html" class="mobile-nav-link" data-i18n="nav-dining">다이닝</a></li>
+            <li><a href="wellness.html" class="mobile-nav-link" data-i18n="nav-wellness">웰니스 온천</a></li>
+            <li><a href="reserve.html" class="mobile-nav-link" data-i18n="nav-reserve">실시간 예약</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ko">KR</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <p class="mobile-contact-info" data-i18n="footer-addr-val">남해군 남면 해안 절벽로 123 (오션 비스타)</p>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banner-section" style="background-image: linear-gradient(rgba(14, 29, 21, 0.55), rgba(14, 29, 21, 0.75)), url('../assets/dining.png');">
+        <div class="container text-center">
+            <span class="banner-tag reveal" data-i18n="exp1-tag">Gastronomy</span>
+            <h1 class="banner-title reveal" data-i18n="nav-dining">파인 다이닝</h1>
+            <p class="banner-subtitle reveal" data-i18n="exp-subtitle">유기농 야채 정원에서 엄선한 가스트로노미 다이닝과 대자연 속 웰니스 온천을 통해 지친 세포 하나하나를 일깨워 보십시오.</p>
+        </div>
+    </section>
+
+    <!-- Dining Details Section 1: Glasshouse -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2-col-asymmetric">
+                <div class="reveal">
+                    <span class="section-tag" data-i18n="exp1-tag">Gastronomy</span>
+                    <h2 class="section-title" data-i18n="exp1-title">글래스하우스 가든 다이닝</h2>
+                    <div class="section-divider"></div>
+                    <p class="about-desc" data-i18n="exp1-desc">공중에 띄워 지은 투명한 유리 온실 레스토랑에서 매일 수확하는 친환경 채소와 숲속 허브, 제철 특산물로 만들어진 건강한 다이닝 코스를 선보입니다.</p>
+                    <p class="about-desc">셰프가 매일 직접 숲과 농장을 돌며 찾아낸 야생 버섯, 싱그러운 산딸기, 직접 재배한 허브가 플레이트 위에서 하나의 예술 작품으로 다시 태어납니다. 보디 앤 마인드 발란스를 고려하여 유기농 와인 페어링 및 내추럴 티 세레머니 코스도 함께 제공됩니다.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <span class="exp-detail" style="font-size: 0.85rem;"><i class="fa-solid fa-clock"></i> <span data-i18n="exp1-hours">Dinner: 18:00 - 22:00</span></span>
+                        <span class="exp-detail" style="font-size: 0.85rem; margin-top: 0.5rem;"><i class="fa-solid fa-circle-info"></i> <span>사전 예약 필수 (객실 예약 시 추가 가능)</span></span>
+                    </div>
+                </div>
+                
+                <div class="asymmetric-image-grid reveal">
+                    <div class="asymmetric-img-main" style="background-image: url('../assets/dining.png');"></div>
+                    <div class="asymmetric-img-sub" style="background-image: url('../assets/room3.png');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining Details Section 2: Forest Brunch Lounge (bg-dark) -->
+    <section class="section bg-dark">
+        <div class="container">
+            <div class="grid-2-col">
+                <div class="asymmetric-image-grid reveal" style="height: 480px;">
+                    <div class="asymmetric-img-main" style="width: 90%; height: 90%; background-image: url('../assets/room1.png');"></div>
+                    <div class="asymmetric-img-sub" style="width: 45%; height: 45%; background-image: url('../assets/hero.png');"></div>
+                </div>
+                
+                <div class="reveal">
+                    <span class="section-tag">Brunch & Bar</span>
+                    <h2 class="section-title" style="color: var(--color-linen);">포레스트 브런치 & 티 라운지</h2>
+                    <div class="section-divider"></div>
+                    <p class="about-desc" style="color: rgba(245, 244, 240, 0.7);">숲의 아침 안개를 감상하며 신선하게 구워낸 유기농 비건 브레드와 착즙 주스, 그리고 시그니처 블렌딩 허브 티를 즐길 수 있는 라운지입니다.</p>
+                    <p class="about-desc" style="color: rgba(245, 244, 240, 0.7);">오후에는 새들의 노랫소리와 바람이 흔드는 소나무 숲의 고요함 속에서 애프터눈 티 세트와 프라이빗 티 리추얼을 진행하고, 저녁에는 싱글 몰트 위스키와 내추럴 와인을 제안하는 아늑한 위스키 바 브랜드로 조용히 변모합니다.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <span class="exp-detail" style="color: var(--color-linen); font-size: 0.85rem;"><i class="fa-solid fa-clock"></i> <span>Brunch & Tea: 09:00 - 17:00</span></span>
+                        <span class="exp-detail" style="color: var(--color-linen); font-size: 0.85rem; margin-top: 0.5rem;"><i class="fa-solid fa-clock"></i> <span>Forest Bar: 18:00 - 24:00</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef's Philosophy (Editorial Callout) -->
+    <section class="section">
+        <div class="container text-center">
+            <span class="section-tag">Philosophy</span>
+            <h2 class="section-title">자연의 순수함을 플레이트에 담다</h2>
+            <div class="section-divider" style="margin: 0 auto 2rem auto;"></div>
+            <p class="section-subtitle" style="margin-bottom: 2rem; max-width: 750px;">
+                “그랜드 에이토스의 가스트로노미는 단순한 미식에 그치지 않습니다. 숲의 에너지를 고스란히 체내로 흡수하여 신체의 조화를 복구하는 일련의 치료 여정입니다. 우리는 화학 조미료나 인위적인 기법을 배제하고, 식재료가 가진 순수한 에너지를 고스란히 이끌어내는 데 집중합니다.”
+            </p>
+            <p class="philosophical-quote" style="font-size: 1.15rem; font-weight: 400;">— Executive Chef, Min-jun Kim</p>
+        </div>
+    </section>
+
+    <!-- Luxury Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">GRAND AETOS</h2>
+                    <p class="footer-tagline" data-i18n="footer-tagline">가장 평화롭고 고요한 시간, 거대하고 정교하게 조율된 오아시스 그랜드 에이토스.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4 class="footer-title" data-i18n="footer-explore-title">NAVIGATIONS</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav-about">브랜드 철학</a></li>
+                        <li><a href="suites.html" data-i18n="nav-rooms">객실 안내</a></li>
+                        <li><a href="dining.html" data-i18n="footer-nav-dining">파인 다이닝</a></li>
+                        <li><a href="wellness.html" data-i18n="footer-nav-spa">웰니스 스파</a></li>
+                        <li><a href="reserve.html" data-i18n="nav-reserve">실시간 예약</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-info">
+                    <h4 class="footer-title" data-i18n="footer-info-title">INFORMATION</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="policy-directions">오시는 길</a></li>
+                        <li><a href="#" data-i18n="policy-privacy">개인정보 처리방침</a></li>
+                        <li><a href="#" data-i18n="policy-terms">서비스 이용약관</a></li>
+                        <li><a href="#" data-i18n="policy-press">프레스 킷</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-title" data-i18n="footer-contact-title">LOCATION & CONTACT</h4>
+                    <p class="contact-item"><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-addr-val">남해군 남면 해안 절벽로 123 (오션 비스타)</span></p>
+                    <p class="contact-item"><i class="fa-solid fa-phone"></i> +82 (0)55-123-4567</p>
+                    <p class="contact-item"><i class="fa-solid fa-envelope"></i> concierge@aetos.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 GRAND AETOS. All Rights Reserved. <span data-i18n="footer-designed">DESIGNED FOR LUXURY REFERENCE SITE</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Mouse Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAND AETOS — Suites & Villas</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta id="seo-meta-desc" name="description" content="태고의 소나무 숲속에서 누리는 천연 온천 스파 리포트 그랜드 에이토스. 웰니스 요가, 지열 자쿠지가 완비된 독채 빌라 예약을 조율해 보세요.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+KR:wght@200;300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Common Header / GNB -->
+    <header class="header" id="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <span class="logo-text-top">GRAND AETOS</span>
+                <span class="logo-text-bottom">FOREST RETREAT</span>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link" data-i18n="nav-about">브랜드 철학</a></li>
+                    <li><a href="suites.html" class="nav-link active" data-i18n="nav-rooms">객실 안내</a></li>
+                    <li><a href="dining.html" class="nav-link" data-i18n="nav-dining">다이닝</a></li>
+                    <li><a href="wellness.html" class="nav-link" data-i18n="nav-wellness">웰니스 온천</a></li>
+                    <li><a href="reserve.html" class="nav-link" data-i18n="nav-reserve">실시간 예약</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-cta">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ko">KR</button>
+                    <span class="lang-divider">/</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <a href="reserve.html" class="btn btn-outline btn-sm" data-i18n="btn-book">예약하기</a>
+                <button class="mobile-toggle-btn" id="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-close-btn" id="mobile-menu-close">&times;</button>
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-nav-link" data-i18n="nav-about">브랜드 철학</a></li>
+            <li><a href="suites.html" class="mobile-nav-link" data-i18n="nav-rooms">객실 안내</a></li>
+            <li><a href="dining.html" class="mobile-nav-link" data-i18n="nav-dining">다이닝</a></li>
+            <li><a href="wellness.html" class="mobile-nav-link" data-i18n="nav-wellness">웰니스 온천</a></li>
+            <li><a href="reserve.html" class="mobile-nav-link" data-i18n="nav-reserve">실시간 예약</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="ko">KR</button>
+                <span class="lang-divider">/</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <p class="mobile-contact-info" data-i18n="footer-addr-val">남해군 남면 해안 절벽로 123 (오션 비스타)</p>
+        </div>
+    </div>
+
+    <!-- Banner Section -->
+    <section class="banner-section" style="background-image: linear-gradient(rgba(14, 29, 21, 0.55), rgba(14, 29, 21, 0.75)), url('../assets/room2.png');">
+        <div class="container text-center">
+            <span class="banner-tag reveal" data-i18n="rooms-tag">Suites & Villas</span>
+            <h1 class="banner-title reveal" data-i18n="rooms-title">자연을 품은 프라이빗 스위트</h1>
+            <p class="banner-subtitle reveal" data-i18n="rooms-subtitle">지형에 스며들듯 설계된 단 3개의 독채형 객실만을 프라이빗하게 운영합니다. 전면 통유리와 천연 편백나무 마감으로 숲과의 경계를 허물었습니다.</p>
+        </div>
+    </section>
+
+    <!-- Room Selection & Grid Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Filter Tabs -->
+            <div class="filter-tabs-container reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="suite">Suites</button>
+                <button class="filter-btn" data-filter="villa">Villas</button>
+            </div>
+            
+            <!-- Room Cards Grid (Dynamic content populated by app.js) -->
+            <div id="rooms-cards-grid" class="grid-3-col">
+                <!-- JavaScript inserts room cards here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Room Details Modal Overlay -->
+    <div class="modal-overlay" id="room-modal">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="room-modal-close">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-visual" id="modal-room-image"></div>
+                <div class="modal-content">
+                    <span class="modal-tag" data-i18n="modal-tag">객실 세부 정보</span>
+                    <h2 class="modal-title" id="modal-room-name">객실 이름</h2>
+                    <div class="modal-price" id="modal-room-price">₩0 / 1박</div>
+                    <p class="modal-description" id="modal-room-desc">객실 설명</p>
+                    
+                    <h4 class="modal-subheading" data-i18n="modal-subhead-specs">객실 사양</h4>
+                    <div class="modal-specs-grid">
+                        <div class="spec-item"><span class="spec-label" data-i18n="spec-size">크기:</span><span id="modal-room-size">55 m²</span></div>
+                        <div class="spec-item"><span class="spec-label" data-i18n="spec-view">전망:</span><span id="modal-room-view">원시림 & 숲 전망</span></div>
+                        <div class="spec-item"><span class="spec-label" data-i18n="spec-occ">최대 인원:</span><span id="modal-room-occupancy">2인</span></div>
+                        <div class="spec-item"><span class="spec-label" data-i18n="spec-beds">침대:</span><span id="modal-room-beds">킹베드 1개</span></div>
+                    </div>
+                    
+                    <h4 class="modal-subheading" data-i18n="modal-subhead-amenities">기본 포함 어메니티</h4>
+                    <ul class="modal-amenities-list" id="modal-room-amenities">
+                        <!-- Dynamic list from JS -->
+                    </ul>
+                    
+                    <div class="modal-footer">
+                        <button class="btn btn-outline btn-full" id="modal-close-action" data-i18n="btn-back-list">목록으로</button>
+                        <button class="btn btn-primary btn-full" id="modal-book-action" data-i18n="btn-select-book">선택 및 예약</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Luxury Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">GRAND AETOS</h2>
+                    <p class="footer-tagline" data-i18n="footer-tagline">가장 평화롭고 고요한 시간, 거대하고 정교하게 조율된 오아시스 그랜드 에이토스.</p>
+                    <div class="footer-socials">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-nav">
+                    <h4 class="footer-title" data-i18n="footer-explore-title">NAVIGATIONS</h4>
+                    <ul>
+                        <li><a href="index.html" data-i18n="nav-about">브랜드 철학</a></li>
+                        <li><a href="suites.html" data-i18n="nav-rooms">객실 안내</a></li>
+                        <li><a href="dining.html" data-i18n="footer-nav-dining">파인 다이닝</a></li>
+                        <li><a href="wellness.html" data-i18n="footer-nav-spa">웰니스 스파</a></li>
+                        <li><a href="reserve.html" data-i18n="nav-reserve">실시간 예약</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-info">
+                    <h4 class="footer-title" data-i18n="footer-info-title">INFORMATION</h4>
+                    <ul>
+                        <li><a href="#" data-i18n="policy-directions">오시는 길</a></li>
+                        <li><a href="#" data-i18n="policy-privacy">개인정보 처리방침</a></li>
+                        <li><a href="#" data-i18n="policy-terms">서비스 이용약관</a></li>
+                        <li><a href="#" data-i18n="policy-press">프레스 킷</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-title" data-i18n="footer-contact-title">LOCATION & CONTACT</h4>
+                    <p class="contact-item"><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-addr-val">남해군 남면 해안 절벽로 123 (오션 비스타)</span></p>
+                    <p class="contact-item"><i class="fa-solid fa-phone"></i> +82 (0)55-123-4567</p>
+                    <p class="contact-item"><i class="fa-solid fa-envelope"></i> concierge@aetos.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 GRAND AETOS. All Rights Reserved. <span data-i18n="footer-designed">DESIGNED FOR LUXURY REFERENCE SITE</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Mouse Cursor -->
+    <div id="custom-cursor"></div>
+    <div id="custom-cursor-dot"></div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>

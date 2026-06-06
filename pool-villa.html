@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETOS HOUSE — The Art of Stillness</title>
+    
+    <!-- Meta Descriptions for SEO -->
+    <meta name="description" id="seo-meta-desc" content="바다와 절벽 사이 완벽한 고요를 담은 리조트 에이토스 하우스. 프라이빗 온수 인피니티 풀빌라에서 당신만의 특별한 힐링 여정을 계획해 보세요.">
+    <meta name="keywords" content="에이토스 하우스, aetos house, 풀빌라 리조트, 오션뷰 펜션, 인피니티 풀빌라, 온수 수영장, 감성 리조트, 스파 리조트">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" id="og-title-tag" content="AETOS HOUSE — The Art of Stillness">
+    <meta property="og:description" id="og-desc-tag" content="거대한 침묵 속에서 온전한 감각을 일깨우는 시간, 절벽 위 프라이빗 독채 풀빌라에서 펼쳐지는 가장 숭고한 쉼의 예술.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/hero.png">
+    
+    <!-- Google Fonts: Cormorant Garamond (luxury serif), Noto Serif KR (elegant Korean serif), Inter (sharp UI sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- External stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-pearl text-charcoal font-sans overflow-x-hidden">
+    <!-- Custom cursor elements -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
+    
+    <!-- Floating Luxury Header (GNB) -->
+    <header id="main-header" class="header">
+        <div class="header-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="logo-link" id="nav-logo">
+                <span class="logo-text-top">AETOS</span>
+                <span class="logo-text-bottom">HOUSE</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <nav class="nav-menu" id="nav-menu-desktop">
+                <ul class="nav-list">
+                    <li><a href="#philosophy" class="nav-link" id="link-about" data-i18n="nav-about">Philosophy</a></li>
+                    <li><a href="#suites" class="nav-link" id="link-rooms" data-i18n="nav-rooms">Suites & Villas</a></li>
+                    <li><a href="#experiences" class="nav-link" id="link-experiences" data-i18n="nav-experiences">Experiences</a></li>
+                    <li><a href="#booking" class="nav-link" id="link-reserve" data-i18n="nav-reserve">Reservations</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header CTA & Hamburger -->
+            <div class="header-cta">
+                <!-- Language Switcher Desktop -->
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                
+                <a href="#booking" class="btn btn-outline" id="header-book-btn" data-i18n="btn-book">Book Now</a>
+                
+                <button class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+        <button class="mobile-close-btn" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+        <nav class="mobile-nav">
+            <ul class="mobile-nav-list">
+                <li><a href="#philosophy" class="mobile-nav-link" data-i18n="nav-about">Philosophy</a></li>
+                <li><a href="#suites" class="mobile-nav-link" data-i18n="nav-rooms">Suites & Villas</a></li>
+                <li><a href="#experiences" class="mobile-nav-link" data-i18n="nav-experiences">Experiences</a></li>
+                <li><a href="#booking" class="mobile-nav-link" data-i18n="nav-reserve">Reservations</a></li>
+            </ul>
+            <div class="mobile-menu-footer">
+                <!-- Language Switcher Mobile -->
+                <div class="lang-switcher margin-bottom-md">
+                    <button class="lang-btn active" data-lang="ko">KO</button>
+                    <span class="lang-divider">|</span>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <a href="#booking" class="btn btn-primary btn-full" id="mobile-book-btn" data-i18n="btn-book">Book Now</a>
+                <p class="mobile-contact-info">concierge@aetoshouse.com<br>+82 (0)2 123 4567</p>
+            </div>
+        </nav>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg-wrapper">
+                <video autoplay loop muted playsinline poster="assets/hero.png" class="hero-video" id="hero-bg-video">
+                    <source src="assets/video.mp4" type="video/mp4">
+                </video>
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content text-center reveal">
+                <span class="hero-tagline"><span class="reveal-mask"><span class="reveal-text" data-i18n="hero-tagline">The Art of Stillness</span></span></span>
+                <h1 class="hero-title"><span class="reveal-mask"><span class="reveal-text" id="main-title" data-i18n="hero-title">AETOS HOUSE</span></span></h1>
+                <p class="hero-subtitle" data-i18n="hero-subtitle">거대한 침묵 속에서 온전한 감각을 일깨우는 시간,<br class="desktop-br">절벽 위 프라이빗 독채 빌라에서 펼쳐지는 가장 숭고한 쉼의 예술.</p>
+                <div class="hero-actions">
+                    <a href="#philosophy" class="btn btn-outline" id="hero-explore-btn" data-i18n="hero-explore">Explore</a>
+                    <a href="#booking" class="btn btn-primary" id="hero-book-btn" data-i18n="btn-book">Book Now</a>
+                </div>
+            </div>
+
+            <!-- Quick Booking Bar (Glassmorphic) -->
+            <div class="quick-booking-bar reveal delay-2">
+                <form id="quick-booking-form" class="quick-booking-form">
+                    <div class="booking-field">
+                        <label for="quick-checkin"><i class="fa-regular fa-calendar"></i> <span data-i18n="label-checkin">Check-in</span></label>
+                        <input type="date" id="quick-checkin" required>
+                    </div>
+                    <div class="booking-field border-left">
+                        <label for="quick-checkout"><i class="fa-regular fa-calendar"></i> <span data-i18n="label-checkout">Check-out</span></label>
+                        <input type="date" id="quick-checkout" required>
+                    </div>
+                    <div class="booking-field border-left">
+                        <label for="quick-guests"><i class="fa-solid fa-user-group"></i> <span data-i18n="label-guests">Guests</span></label>
+                        <select id="quick-guests">
+                            <option value="1">1 Guest</option>
+                            <option value="2" selected>2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                        </select>
+                    </div>
+                    <div class="booking-field border-left">
+                        <label for="quick-room"><i class="fa-solid fa-bed"></i> <span data-i18n="label-room-select">Select Suite</span></label>
+                        <select id="quick-room">
+                            <!-- Populated dynamically via app.js -->
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-gold btn-booking" id="quick-booking-submit">
+                        <span data-i18n="btn-check-avail">Check Availability</span>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Scroll Down Indicator -->
+            <div class="hero-scroll-indicator">
+                <span data-i18n="scroll-down">Scroll Down</span>
+                <div class="scroll-line">
+                    <div class="scroll-bounce"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Philosophy Section -->
+        <section id="philosophy" class="section philosophy-section">
+            <div class="container">
+                <div class="grid-2-col-asymmetric">
+                    <!-- Text Column -->
+                    <div class="about-text reveal">
+                        <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="about-tag">Philosophy</span></span></span>
+                        <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="about-title">바다와 절벽,<br class="desktop-br">그 사이 완벽한 침묵</span></span></h2>
+                        <div class="section-divider"></div>
+                        <p class="about-desc" data-i18n="about-desc1">
+                            에이토스 하우스는 복잡한 일상을 등지고 거대한 자연의 고요함에 기대어 쉴 수 있는 단 하나의 시크릿 리조트입니다. 우리가 정의하는 럭셔리는 화려하게 채우는 것이 아닌, 불필요한 모든 것을 완벽히 비우는 것이며 비움으로써 일어나는 감각의 회복을 의미합니다.
+                        </p>
+                        <p class="about-desc" data-i18n="about-desc2">
+                            독채 풀빌라에서 느껴지는 고요한 숨소리와, 잔잔한 바람 소리, 파도 소리만이 온전히 당신의 시간을 메우는 기적 같은 휴식을 직접 직조해 보십시오.
+                        </p>
+                        <div class="pt-4">
+                            <span class="philosophical-quote" data-i18n="philosophical-quote">“Experience the absolute privilege of quiet.”</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Visual Stack Column -->
+                    <div class="about-visual reveal delay-2">
+                        <div class="asymmetric-image-grid">
+                            <div class="asymmetric-img-main" style="background-image: url('assets/hero.png');" aria-label="Aetos House Ocean Pool View"></div>
+                            <div class="asymmetric-img-sub" style="background-image: url('assets/spa.png');" aria-label="Aetos House Ritual Tub"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suites & Villas Showcase Section -->
+        <section id="suites" class="section suites-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="rooms-tag">Suites & Villas</span></span></span>
+                    <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="rooms-title">시그니처 프라이빗 스페이스</span></span></h2>
+                    <p class="section-subtitle" data-i18n="rooms-subtitle">모든 객실은 독채형 구조로 구성되어 독보적인 프라이버시를 보장합니다. 천연 원목과 천연석, 통유리를 통해 들어오는 아름다운 조망을 품고 있습니다.</p>
+                </div>
+                
+                <div class="grid-3-col reveal delay-2" id="rooms-cards-grid">
+                    <!-- Room Cards are rendered dynamically in app.js depending on language selection -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Room Detail Modal -->
+        <div class="modal-overlay" id="room-modal">
+            <div class="modal-card">
+                <button class="modal-close-btn" id="room-modal-close" aria-label="Close modal">&times;</button>
+                <div class="modal-grid">
+                    <div class="modal-visual" id="modal-room-image"></div>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="modal-tag" data-i18n="modal-tag">객실 세부 정보</span>
+                            <h3 class="modal-title" id="modal-room-name">스위트 이름</h3>
+                            <div class="modal-price" id="modal-room-price">KRW 0 / Night</div>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-description" id="modal-room-desc">객실 상세 설명...</p>
+                            
+                            <h4 class="modal-subheading" data-i18n="modal-subhead-specs">객실 사양</h4>
+                            <div class="modal-specs-grid">
+                                <div class="spec-item"><span class="spec-label" data-i18n="spec-size">크기:</span> <span id="modal-room-size">0 m²</span></div>
+                                <div class="spec-item"><span class="spec-label" data-i18n="spec-view">전망:</span> <span id="modal-room-view">오션뷰</span></div>
+                                <div class="spec-item"><span class="spec-label" data-i18n="spec-occ">최대 인원:</span> <span id="modal-room-occupancy">2인</span></div>
+                                <div class="spec-item"><span class="spec-label" data-i18n="spec-beds">침대:</span> <span id="modal-room-beds">킹베드 1개</span></div>
+                            </div>
+
+                            <h4 class="modal-subheading" data-i18n="modal-subhead-amenities">기본 포함 어메니티</h4>
+                            <ul class="modal-amenities-list" id="modal-room-amenities">
+                                <!-- Dynamic Amenities -->
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline" id="modal-close-action" data-i18n="btn-back-list">목록으로</button>
+                            <button class="btn btn-primary" id="modal-book-action" data-i18n="btn-select-book">선택 및 예약</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dining & Wellness (Experiences) Section -->
+        <section id="experiences" class="section experiences-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="exp-tag">Gastronomy & Wellness</span></span></span>
+                    <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="exp-title">오감으로 채우는 여정</span></span></h2>
+                    <p class="section-subtitle" data-i18n="exp-subtitle">미장센 예술에 가까운 파인 다이닝과, 고유한 질감과 향기를 담은 테라피 세션을 통해 신체와 정신의 우아한 대칭을 경험해 보세요.</p>
+                </div>
+                
+                <div class="grid-3-col reveal delay-2">
+                    <!-- Experience 1: Fine Dining -->
+                    <div class="experience-card">
+                        <div class="experience-img-wrapper">
+                            <div class="experience-img" style="background-image: url('assets/dining.png');"></div>
+                        </div>
+                        <div class="experience-content">
+                            <span class="exp-tag" data-i18n="exp1-tag">Fine Dining</span>
+                            <h3 class="exp-title" data-i18n="exp1-title">더 파빌리온 (The Pavilion)</h3>
+                            <p class="exp-desc" data-i18n="exp1-desc">수평선 너머로 저무는 석양을 배경으로, 유기농 식재료와 명장 셰프가 빚어내는 파인 다이닝 요리를 제공합니다. 리조트에서 엄선한 한정 페어링 와인 컬렉션을 갖추고 있습니다.</p>
+                            <span class="exp-detail"><i class="fa-solid fa-clock"></i> <span data-i18n="exp1-hours">Dinner: 18:00 - 22:30</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: Outdoor Heated Pool -->
+                    <div class="experience-card">
+                        <div class="experience-img-wrapper">
+                            <div class="experience-img" style="background-image: url('assets/hero.png');"></div>
+                        </div>
+                        <div class="experience-content">
+                            <span class="exp-tag" data-i18n="exp2-tag">SWIMMING POOL</span>
+                            <h3 class="exp-title" data-i18n="exp2-title">스카이피니티 & 치엘로 온수풀</h3>
+                            <p class="exp-desc" data-i18n="exp2-desc">절벽 위에 수평선과 연결되도록 정교하게 배치된 heated 야외 온수 수영장입니다. 노을이 가라앉는 시간에 카바나에서 로맨틱한 파도 소리를 들으며 온전한 해방감을 경험해 보십시오.</p>
+                            <span class="exp-detail"><i class="fa-solid fa-clock"></i> <span data-i18n="exp2-hours">Operating: 09:00 - 22:00</span></span>
+                        </div>
+                    </div>
+
+                    <!-- Experience 3: Wellness Spa -->
+                    <div class="experience-card">
+                        <div class="experience-img-wrapper">
+                            <div class="experience-img" style="background-image: url('assets/spa.png');"></div>
+                        </div>
+                        <div class="experience-content">
+                            <span class="exp-tag" data-i18n="exp3-tag">Wellness & Ritual</span>
+                            <h3 class="exp-title" data-i18n="exp3-title">아난다 스파 리추얼 (Ananda Spa)</h3>
+                            <p class="exp-desc" data-i18n="exp3-desc">시그니처 아로마와 은은한 허브 티의 풍미, 가만히 감아쥐는 스톤 리추얼을 통해 바쁜 일상에서 지쳤던 감정과 근육을 완전히 이완해 주는 웰니스 치유 세션입니다.</p>
+                            <span class="exp-detail"><i class="fa-solid fa-clock"></i> <span data-i18n="exp3-hours">Spa Hours: 08:00 - 21:00</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Aesthetic Grid -->
+        <section class="section aesthetic-section">
+            <div class="container">
+                <div class="grid-2-col-header reveal">
+                    <div>
+                        <span class="section-tag" data-i18n="aest-tag">Aesthetic Moments</span>
+                        <h3 class="section-title font-serif font-light" data-i18n="aest-title">고요함이 머무는 찰나의 흔적들</h3>
+                    </div>
+                    <div>
+                        <p class="aesthetic-header-desc" data-i18n="aest-desc">
+                            에이토스 하우스의 완성도는 눈에 잘 띄지 않는 아주 작은 가구의 비례, 패브릭의 감촉, 공간에 스며든 바람의 양으로 결정됩니다. 오직 이곳에서만 마주할 수 있는 우아한 순간들입니다.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="aesthetic-grid reveal">
+                    <div class="aesthetic-img-item" style="background-image: url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80');" aria-label="Linen Details"></div>
+                    <div class="aesthetic-img-item offset-y" style="background-image: url('https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=500&q=80');" aria-label="Calm stone pool surface"></div>
+                    <div class="aesthetic-img-item" style="background-image: url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=500&q=80');" aria-label="Warm organic ceramics"></div>
+                    <div class="aesthetic-img-item offset-y" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=500&q=80');" aria-label="Golden light casting shadows"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reservation Simulator Section -->
+        <section id="reservation" class="section reservation-section">
+            <div class="container">
+                <div class="section-header text-center reveal">
+                    <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="reserve-tag">Reservations</span></span></span>
+                    <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="reserve-title">여정의 시작</span></span></h2>
+                    <p class="section-subtitle" data-i18n="reserve-subtitle">객실과 예약 기간을 자유롭게 설정하여 견적 및 가상 예약을 완성해 보세요.</p>
+                </div>
+
+                <div class="reservation-card reveal delay-2">
+                    <div class="reservation-grid" id="booking-flow-container">
+                        <!-- Left Side Form -->
+                        <div class="booking-form-pane">
+                            <h3 class="pane-title"><i class="fa-solid fa-pen-to-square"></i> <span data-i18n="form-title">예약 정보 입력</span></h3>
+                            <form id="main-booking-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="book-checkin" data-i18n="label-checkin">Check-in Date</label>
+                                        <input type="date" id="book-checkin" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="book-checkout" data-i18n="label-checkout">Check-out Date</label>
+                                        <input type="date" id="book-checkout" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="book-guests" data-i18n="label-guests">Guests Count</label>
+                                        <select id="book-guests">
+                                            <!-- Dynamically populated in app.js -->
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="book-room" data-i18n="label-room-type">Suites Option</label>
+                                        <select id="book-room">
+                                            <!-- Dynamically populated in app.js -->
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <hr class="form-divider">
+                                
+                                <h4 class="form-section-title"><i class="fa-solid fa-circle-plus"></i> <span data-i18n="form-subhead-addons">추가 혜택 및 옵션</span></h4>
+                                <div class="enhancements-list">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="add-dining" value="150"> <!-- Cabana BBQ flat 150,000 KRW -->
+                                        <span class="checkmark"></span>
+                                        <div>
+                                            <span class="enhance-name" data-i18n="addon-dining-name">노을 카바나 바베큐 세트</span>
+                                            <span class="enhance-price" data-i18n="addon-dining-price">+₩150,000 / 1회 세팅</span>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="add-spa" value="70"> <!-- Spa pass 70,000 KRW per guest -->
+                                        <span class="checkmark"></span>
+                                        <div>
+                                            <span class="enhance-name" data-i18n="addon-spa-name">아난다 온천 스파 패스</span>
+                                            <span class="enhance-price" data-i18n="addon-spa-price">+₩70,000 / 1인</span>
+                                        </div>
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" id="add-transfer" value="90"> <!-- Transfer 90,000 KRW flat -->
+                                        <span class="checkmark"></span>
+                                        <div>
+                                            <span class="enhance-name" data-i18n="addon-transfer-name">하이브리드 SUV 공항 픽업 서비스</span>
+                                            <span class="enhance-price" data-i18n="addon-transfer-price">+₩90,000 (편도 정액)</span>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <hr class="form-divider">
+
+                                <h4 class="form-section-title"><i class="fa-solid fa-address-card"></i> <span data-i18n="form-subhead-contact">예약자 연락처 정보</span></h4>
+                                <div class="form-group">
+                                    <label for="book-name" data-i18n="label-name">Contact Name</label>
+                                    <input type="text" id="book-name" placeholder="홍길동" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-phone" data-i18n="label-phone">Phone Number</label>
+                                    <input type="tel" id="book-phone" placeholder="010-1234-5678" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="book-requests" data-i18n="label-requests">Special Requests (Optional)</label>
+                                    <textarea id="book-requests" rows="3" placeholder="알레르기 유무, 픽업 시간 기재..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-full margin-top-md" id="booking-submit-btn">
+                                    <i class="fa-solid fa-circle-check"></i> <span data-i18n="btn-request-book">Confirm Reservation Stay</span>
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- Right Side Summary Card -->
+                        <div class="booking-summary-pane" id="booking-summary-panel">
+                            <h3 class="pane-title" data-i18n="summary-title">예약 정보 요약</h3>
+                            <div class="summary-room-preview" id="summary-room-img" style="background-image: url('assets/room1.png');"></div>
+                            
+                            <div class="summary-details">
+                                <h4 class="summary-room-name" id="summary-room-title">스위트 이름</h4>
+                                <p class="summary-dates" id="summary-display-dates">체크인 및 체크아웃 날짜를 선택해 주세요</p>
+                                <p class="summary-guests" id="summary-display-guests">2명</p>
+                            </div>
+
+                            <hr class="summary-divider">
+
+                            <div class="pricing-breakdown font-sans font-light">
+                                <div class="price-row">
+                                    <span id="price-label-nights">객실 총액 (₩3,500,000 x 1박)</span>
+                                    <span id="price-value-nights">₩3,500,000</span>
+                                </div>
+                                <div class="price-row" id="row-dining-cost" style="display: none;">
+                                    <span data-i18n="addon-dining-short">노을 카바나 바베큐</span>
+                                    <span id="val-dining-cost">₩0</span>
+                                </div>
+                                <div class="price-row" id="row-spa-cost" style="display: none;">
+                                    <span data-i18n="addon-spa-short">아난다 스파 패스</span>
+                                    <span id="val-spa-cost">₩0</span>
+                                </div>
+                                <div class="price-row" id="row-transfer-cost" style="display: none;">
+                                    <span data-i18n="addon-transfer-short">공항 SUV 서비스</span>
+                                    <span id="val-transfer-cost">₩0</span>
+                                </div>
+                                <div class="price-row">
+                                    <span data-i18n="summary-tax-label">Eco-Resort Levy & Tax (10%)</span>
+                                    <span id="price-value-tax">₩350,000</span>
+                                </div>
+                                <hr class="summary-divider-sub">
+                                <div class="price-row total-row">
+                                    <span data-i18n="summary-total-label">Estimated Total Price</span>
+                                    <span id="price-value-total">₩3,850,000</span>
+                                </div>
+                            </div>
+                            
+                            <div class="summary-footer-notice">
+                                <p><i class="fa-solid fa-shield-halved"></i> <span data-i18n="summary-cancel-policy">24시간 전 무료 취소 가능. 현장 결제.</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loader View -->
+                    <div class="booking-loading-pane" id="booking-loading-panel" style="display: none;">
+                        <div class="spinner-container">
+                            <div class="spa-spinner"></div>
+                            <h3 class="loading-message" data-i18n="load-title">객실 예약 가능 여부 확인 중...</h3>
+                            <p class="loading-desc" data-i18n="load-desc">에이토스 하우스의 최고급 친환경 안식처를 확보하고 있습니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Booking Success screen (Modal Ticket Style) -->
+                    <div class="booking-success-pane" id="booking-success-panel" style="display: none;">
+                        <div class="success-header text-center">
+                            <div class="success-icon-wrapper">
+                                <i class="fa-solid fa-hotel"></i>
+                            </div>
+                            <h3 class="success-title" data-i18n="success-title">RESERVATION CONFIRMED</h3>
+                            <p class="success-subtitle" data-i18n="success-subtitle">고귀한 쉼의 여정이 확정되었습니다.</p>
+                        </div>
+                        
+                        <div class="receipt-card">
+                            <div class="receipt-header">
+                                <div>
+                                    <span class="receipt-label" data-i18n="receipt-code-label">CONFIRMATION CODE</span>
+                                    <span class="receipt-code" id="receipt-conf-code">AURA-2983-V</span>
+                                </div>
+                                <div class="text-right">
+                                    <span class="receipt-label" data-i18n="receipt-status-label">STATUS</span>
+                                    <span class="receipt-badge" data-i18n="receipt-status-val">확정됨</span>
+                                </div>
+                            </div>
+                            
+                            <div class="receipt-details">
+                                <div class="receipt-item">
+                                    <span class="receipt-label" data-i18n="label-name">Contact Name</span>
+                                    <span class="receipt-val" id="receipt-guest-name">홍길동</span>
+                                </div>
+                                <div class="receipt-item">
+                                    <span class="receipt-label" data-i18n="receipt-room-label">SANCTUARY</span>
+                                    <span class="receipt-val" id="receipt-room-name">프레지덴셜 풀빌라</span>
+                                </div>
+                                <div class="receipt-item">
+                                    <span class="receipt-label" data-i18n="label-checkin">Check-in</span>
+                                    <span class="receipt-val" id="receipt-checkin">2026-06-12</span>
+                                </div>
+                                <div class="receipt-item">
+                                    <span class="receipt-label" data-i18n="label-checkout">Check-out</span>
+                                    <span class="receipt-val" id="receipt-checkout">2026-06-15</span>
+                                </div>
+                            </div>
+
+                            <hr class="receipt-divider">
+
+                            <div class="receipt-financials">
+                                <div class="receipt-row">
+                                    <span data-i18n="receipt-price-label">Total Price</span>
+                                    <span class="receipt-total-val" id="receipt-total-cost">₩3,850,000</span>
+                                </div>
+                                <p class="receipt-disclaimer" id="receipt-success-disclaimer">기재하신 연락처로 컨시어지가 24시간 이내에 직접 디테일 플래닝을 위해 개별 전화를 드립니다. 결제는 퇴실 시 진행됩니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="success-actions text-center">
+                            <button class="btn btn-outline" id="success-reset-btn" data-i18n="btn-new-reserve">새로 예약하기</button>
+                            <button class="btn btn-primary" id="success-download-btn"><i class="fa-solid fa-download"></i> <span data-i18n="btn-save-receipt">영수증 저장</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Branding column -->
+                <div class="footer-brand-col">
+                    <a href="index.html" class="logo-link logo-footer">
+                        <span class="logo-text-top">AETOS</span>
+                        <span class="logo-text-bottom">HOUSE</span>
+                    </a>
+                    <p class="footer-tagline" data-i18n="footer-tagline">가장 평화롭고 고요한 시간, 거대하고 정교하게 조율된 오아시스 에이토스 하우스.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Navigations column -->
+                <div class="footer-links-col">
+                    <h4 class="footer-title" data-i18n="footer-explore-title">NAVIGATIONS</h4>
+                    <ul class="footer-links">
+                        <li><a href="#philosophy" data-i18n="nav-about">Philosophy</a></li>
+                        <li><a href="#suites" data-i18n="nav-rooms">Suites & Villas</a></li>
+                        <li><a href="#experiences" data-i18n="footer-nav-dining">Fine Dining</a></li>
+                        <li><a href="#booking" data-i18n="footer-nav-spa">Wellness Spa</a></li>
+                    </ul>
+                </div>
+
+                <!-- Information column -->
+                <div class="footer-links-col">
+                    <h4 class="footer-title" data-i18n="footer-info-title">INFORMATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" data-i18n="policy-directions">Directions</a></li>
+                        <li><a href="#" data-i18n="policy-privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="policy-terms">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="policy-press">Press Kit</a></li>
+                    </ul>
+                </div>
+
+                <!-- Location & Contact column -->
+                <div class="footer-contact-col">
+                    <h4 class="footer-title" data-i18n="footer-contact-title">LOCATION & CONTACT</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-addr-val">Cliffside Ocean Vista, South Coast, Korea</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>concierge@aetoshouse.com</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>+82 (0)2 123 4567</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 AETOS HOUSE. ALL RIGHTS RESERVED.</p>
+                <p class="footer-designed" data-i18n="footer-designed">DESIGNED FOR LUXURY REFERENCE SITE</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- External script -->
+    <script src="app.js"></script>
+</body>
+</html>
