@@ -980,59 +980,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- CUSTOM CURSOR TRACKER ---
-    const cursor = document.getElementById("custom-cursor");
-    const cursorDot = document.getElementById("custom-cursor-dot");
-    
-    if (cursor && cursorDot) {
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
-        
-        window.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // Dot moves instantly
-            cursorDot.style.left = `${mouseX}px`;
-            cursorDot.style.top = `${mouseY}px`;
-        });
-        
-        // Outer ring moves with easing (lerp)
-        const tick = () => {
-            cursorX += (mouseX - cursorX) * 0.12;
-            cursorY += (mouseY - cursorY) * 0.12;
-            
-            cursor.style.left = `${cursorX}px`;
-            cursor.style.top = `${cursorY}px`;
-            
-            requestAnimationFrame(tick);
-        };
-        tick();
-        
-        // Hover effects for standard clickable elements
-        const hoverables = document.querySelectorAll("a, button, select, input, textarea, .lang-btn, .checkmark");
-        hoverables.forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                cursor.classList.add("hover");
-            });
-            el.addEventListener("mouseleave", () => {
-                cursor.classList.remove("hover");
-            });
-        });
-        
-        // Hover effects for card/interactive visual elements
-        const cardHoverables = document.querySelectorAll(".room-card, .experience-card, .asymmetric-img-main, .asymmetric-img-sub, .aesthetic-img-item");
-        cardHoverables.forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                cursor.classList.add("view-hover");
-            });
-            el.addEventListener("mouseleave", () => {
-                cursor.classList.remove("view-hover");
-            });
-        });
-    }
+
 
     // Initialize Page with Default Language (Korean)
     updateLanguage('ko');

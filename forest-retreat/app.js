@@ -937,57 +937,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 5000);
     }
 
-    // --- CUSTOM CURSOR TRACKER ---
-    const cursor = document.getElementById("custom-cursor");
-    const cursorDot = document.getElementById("custom-cursor-dot");
-    
-    if (cursor && cursorDot) {
-        let mouseX = 0;
-        let mouseY = 0;
-        let cursorX = 0;
-        let cursorY = 0;
-        
-        window.addEventListener("mousemove", (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            cursorDot.style.left = `${mouseX}px`;
-            cursorDot.style.top = `${mouseY}px`;
-        });
-        
-        const tick = () => {
-            cursorX += (mouseX - cursorX) * 0.12;
-            cursorY += (mouseY - cursorY) * 0.12;
-            
-            cursor.style.left = `${cursorX}px`;
-            cursor.style.top = `${cursorY}px`;
-            
-            requestAnimationFrame(tick);
-        };
-        tick();
-        
-        // Hover effects for standard elements
-        const hoverables = document.querySelectorAll("a, button, select, input, textarea, .lang-btn, .checkmark, .filter-btn");
-        hoverables.forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                cursor.classList.add("hover");
-            });
-            el.addEventListener("mouseleave", () => {
-                cursor.classList.remove("hover");
-            });
-        });
-        
-        // Hover effects for cards/images
-        const cardHoverables = document.querySelectorAll(".room-card, .experience-card, .asymmetric-img-main, .asymmetric-img-sub, .aesthetic-img-item");
-        cardHoverables.forEach(el => {
-            el.addEventListener("mouseenter", () => {
-                cursor.classList.add("view-hover");
-            });
-            el.addEventListener("mouseleave", () => {
-                cursor.classList.remove("view-hover");
-            });
-        });
-    }
 
     // Initialize Page with Default Language (Korean)
     updateLanguage('ko');
