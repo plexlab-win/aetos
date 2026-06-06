@@ -211,12 +211,17 @@ const TRANSLATIONS = {
         "btn-new-reserve": "새로 예약하기",
         "btn-save-receipt": "영수증 저장",
         "footer-tagline": "가장 평화롭고 고요한 시간, 거대하고 정교하게 조율된 오아시스 에이토스 하우스.",
-        "footer-explore-title": "메뉴",
-        "footer-info-title": "고객지원",
-        "footer-contact-title": "문의 및 연락처",
+        "footer-explore-title": "NAVIGATIONS",
+        "footer-info-title": "INFORMATION",
+        "footer-contact-title": "LOCATION & CONTACT",
         "policy-directions": "오시는 길",
         "policy-privacy": "개인정보 처리방침",
-        "policy-terms": "이용약관"
+        "policy-terms": "서비스 이용약관",
+        "policy-press": "프레스 킷",
+        "footer-nav-dining": "파인 다이닝",
+        "footer-nav-spa": "웰니스 스파",
+        "footer-designed": "DESIGNED FOR LUXURY REFERENCE SITE",
+        "footer-addr-val": "남해군 남면 해안 절벽로 123 (오션 비스타)"
     },
     "en": {
         "nav-about": "Philosophy",
@@ -304,25 +309,50 @@ const TRANSLATIONS = {
         "btn-new-reserve": "New Reservation",
         "btn-save-receipt": "Save Receipt",
         "footer-tagline": "Aetos House & Resort. Designed for Luxury Reference Site.",
-        "footer-explore-title": "Navigations",
-        "footer-info-title": "Information",
-        "footer-contact-title": "Location & Contact",
+        "footer-explore-title": "NAVIGATIONS",
+        "footer-info-title": "INFORMATION",
+        "footer-contact-title": "LOCATION & CONTACT",
         "policy-directions": "Directions",
         "policy-privacy": "Privacy Policy",
-        "policy-terms": "Terms of Service"
+        "policy-terms": "Terms of Service",
+        "policy-press": "Press Kit",
+        "footer-nav-dining": "Fine Dining",
+        "footer-nav-spa": "Wellness Spa",
+        "footer-designed": "DESIGNED FOR LUXURY REFERENCE SITE",
+        "footer-addr-val": "Cliffside Ocean Vista, South Coast, Korea"
     }
 };
 
 document.addEventListener("DOMContentLoaded", () => {
     
-    // --- STICKY HEADER ---
+    // --- SMART HEADER (Auto-hide on Scroll Down, Show on Scroll Up) ---
+    let lastScrollY = window.scrollY;
     const header = document.getElementById("main-header");
+    
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
+        const currentScrollY = window.scrollY;
+        
+        // Sticky Header shrink
+        if (currentScrollY > 50) {
             header.classList.add("scrolled");
         } else {
             header.classList.remove("scrolled");
         }
+        
+        // Auto-hide trigger
+        if (currentScrollY > 150) {
+            if (currentScrollY > lastScrollY) {
+                // Scroll down
+                header.classList.add("header-hidden");
+            } else {
+                // Scroll up
+                header.classList.remove("header-hidden");
+            }
+        } else {
+            header.classList.remove("header-hidden");
+        }
+        
+        lastScrollY = currentScrollY;
     });
 
     // --- MOBILE DRAWER MENU ---
@@ -947,6 +977,60 @@ document.addEventListener("DOMContentLoaded", () => {
     if (successDownloadBtn) {
         successDownloadBtn.addEventListener("click", () => {
             window.print();
+        });
+    }
+
+    // --- CUSTOM CURSOR TRACKER ---
+    const cursor = document.getElementById("custom-cursor");
+    const cursorDot = document.getElementById("custom-cursor-dot");
+    
+    if (cursor && cursorDot) {
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        
+        window.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            
+            // Dot moves instantly
+            cursorDot.style.left = `${mouseX}px`;
+            cursorDot.style.top = `${mouseY}px`;
+        });
+        
+        // Outer ring moves with easing (lerp)
+        const tick = () => {
+            cursorX += (mouseX - cursorX) * 0.12;
+            cursorY += (mouseY - cursorY) * 0.12;
+            
+            cursor.style.left = `${cursorX}px`;
+            cursor.style.top = `${cursorY}px`;
+            
+            requestAnimationFrame(tick);
+        };
+        tick();
+        
+        // Hover effects for standard clickable elements
+        const hoverables = document.querySelectorAll("a, button, select, input, textarea, .lang-btn, .checkmark");
+        hoverables.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                cursor.classList.add("hover");
+            });
+            el.addEventListener("mouseleave", () => {
+                cursor.classList.remove("hover");
+            });
+        });
+        
+        // Hover effects for card/interactive visual elements
+        const cardHoverables = document.querySelectorAll(".room-card, .experience-card, .asymmetric-img-main, .asymmetric-img-sub, .aesthetic-img-item");
+        cardHoverables.forEach(el => {
+            el.addEventListener("mouseenter", () => {
+                cursor.classList.add("view-hover");
+            });
+            el.addEventListener("mouseleave", () => {
+                cursor.classList.remove("view-hover");
+            });
         });
     }
 

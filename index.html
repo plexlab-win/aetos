@@ -27,6 +27,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-pearl text-charcoal font-sans overflow-x-hidden">
+    <!-- Custom cursor elements -->
+    <div class="custom-cursor" id="custom-cursor"></div>
+    <div class="custom-cursor-dot" id="custom-cursor-dot"></div>
     
     <!-- Floating Luxury Header (GNB) -->
     <header id="main-header" class="header">
@@ -100,8 +103,8 @@
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content text-center reveal">
-                <span class="hero-tagline" data-i18n="hero-tagline">The Art of Stillness</span>
-                <h1 class="hero-title" id="main-title" data-i18n="hero-title">AETOS HOUSE</h1>
+                <span class="hero-tagline"><span class="reveal-mask"><span class="reveal-text" data-i18n="hero-tagline">The Art of Stillness</span></span></span>
+                <h1 class="hero-title"><span class="reveal-mask"><span class="reveal-text" id="main-title" data-i18n="hero-title">AETOS HOUSE</span></span></h1>
                 <p class="hero-subtitle" data-i18n="hero-subtitle">거대한 침묵 속에서 온전한 감각을 일깨우는 시간,<br class="desktop-br">절벽 위 프라이빗 독채 빌라에서 펼쳐지는 가장 숭고한 쉼의 예술.</p>
                 <div class="hero-actions">
                     <a href="#philosophy" class="btn btn-outline" id="hero-explore-btn" data-i18n="hero-explore">Explore</a>
@@ -156,8 +159,8 @@
                 <div class="grid-2-col-asymmetric">
                     <!-- Text Column -->
                     <div class="about-text reveal">
-                        <span class="section-tag" data-i18n="about-tag">Philosophy</span>
-                        <h2 class="section-title" data-i18n="about-title">바다와 절벽,<br class="desktop-br">그 사이 완벽한 침묵</h2>
+                        <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="about-tag">Philosophy</span></span></span>
+                        <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="about-title">바다와 절벽,<br class="desktop-br">그 사이 완벽한 침묵</span></span></h2>
                         <div class="section-divider"></div>
                         <p class="about-desc" data-i18n="about-desc1">
                             에이토스 하우스는 복잡한 일상을 등지고 거대한 자연의 고요함에 기대어 쉴 수 있는 단 하나의 시크릿 리조트입니다. 우리가 정의하는 럭셔리는 화려하게 채우는 것이 아닌, 불필요한 모든 것을 완벽히 비우는 것이며 비움으로써 일어나는 감각의 회복을 의미합니다.
@@ -185,8 +188,8 @@
         <section id="suites" class="section suites-section">
             <div class="container">
                 <div class="section-header text-center reveal">
-                    <span class="section-tag" data-i18n="rooms-tag">Suites & Villas</span>
-                    <h2 class="section-title" data-i18n="rooms-title">시그니처 프라이빗 스페이스</h2>
+                    <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="rooms-tag">Suites & Villas</span></span></span>
+                    <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="rooms-title">시그니처 프라이빗 스페이스</span></span></h2>
                     <p class="section-subtitle" data-i18n="rooms-subtitle">모든 객실은 독채형 구조로 구성되어 독보적인 프라이버시를 보장합니다. 천연 원목과 천연석, 통유리를 통해 들어오는 아름다운 조망을 품고 있습니다.</p>
                 </div>
                 
@@ -237,8 +240,8 @@
         <section id="experiences" class="section experiences-section">
             <div class="container">
                 <div class="section-header text-center reveal">
-                    <span class="section-tag" data-i18n="exp-tag">Gastronomy & Wellness</span>
-                    <h2 class="section-title" data-i18n="exp-title">오감으로 채우는 여정</h2>
+                    <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="exp-tag">Gastronomy & Wellness</span></span></span>
+                    <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="exp-title">오감으로 채우는 여정</span></span></h2>
                     <p class="section-subtitle" data-i18n="exp-subtitle">미장센 예술에 가까운 파인 다이닝과, 고유한 질감과 향기를 담은 테라피 세션을 통해 신체와 정신의 우아한 대칭을 경험해 보세요.</p>
                 </div>
                 
@@ -313,8 +316,8 @@
         <section id="reservation" class="section reservation-section">
             <div class="container">
                 <div class="section-header text-center reveal">
-                    <span class="section-tag" data-i18n="reserve-tag">Reservations</span>
-                    <h2 class="section-title" data-i18n="reserve-title">여정의 시작</h2>
+                    <span class="section-tag"><span class="reveal-mask"><span class="reveal-text" data-i18n="reserve-tag">Reservations</span></span></span>
+                    <h2 class="section-title"><span class="reveal-mask"><span class="reveal-text" data-i18n="reserve-title">여정의 시작</span></span></h2>
                     <p class="section-subtitle" data-i18n="reserve-subtitle">객실과 예약 기간을 자유롭게 설정하여 견적 및 가상 예약을 완성해 보세요.</p>
                 </div>
 
@@ -537,42 +540,44 @@
                     </div>
                 </div>
 
-                <!-- Quick links column -->
+                <!-- Navigations column -->
                 <div class="footer-links-col">
-                    <h4 class="footer-title" data-i18n="footer-explore-title">Navigations</h4>
+                    <h4 class="footer-title" data-i18n="footer-explore-title">NAVIGATIONS</h4>
                     <ul class="footer-links">
                         <li><a href="#philosophy" data-i18n="nav-about">Philosophy</a></li>
                         <li><a href="#suites" data-i18n="nav-rooms">Suites & Villas</a></li>
-                        <li><a href="#experiences" data-i18n="nav-experiences">Experiences</a></li>
-                        <li><a href="#booking" data-i18n="nav-reserve">Reservations</a></li>
+                        <li><a href="#experiences" data-i18n="footer-nav-dining">Fine Dining</a></li>
+                        <li><a href="#booking" data-i18n="footer-nav-spa">Wellness Spa</a></li>
                     </ul>
                 </div>
 
-                <!-- Info links column -->
+                <!-- Information column -->
                 <div class="footer-links-col">
-                    <h4 class="footer-title" data-i18n="footer-info-title">Information</h4>
+                    <h4 class="footer-title" data-i18n="footer-info-title">INFORMATION</h4>
                     <ul class="footer-links">
-                        <li><a href="#" data-i18n="policy-directions">오시는 길</a></li>
-                        <li><a href="#" data-i18n="policy-privacy">개인정보 처리방침</a></li>
-                        <li><a href="#" data-i18n="policy-terms">이용약관</a></li>
+                        <li><a href="#" data-i18n="policy-directions">Directions</a></li>
+                        <li><a href="#" data-i18n="policy-privacy">Privacy Policy</a></li>
+                        <li><a href="#" data-i18n="policy-terms">Terms of Service</a></li>
+                        <li><a href="#" data-i18n="policy-press">Press Kit</a></li>
                     </ul>
                 </div>
 
-                <!-- Contact Info column -->
+                <!-- Location & Contact column -->
                 <div class="footer-contact-col">
-                    <h4 class="footer-title" data-i18n="footer-contact-title">Location & Contact</h4>
-                    <address class="footer-address">
-                        Cliffside Ocean Vista, South Coast, Korea
-                    </address>
-                    <p class="footer-tel">T: +82 (0)2 123 4567</p>
-                    <p class="footer-email">E: concierge@aetoshouse.com</p>
+                    <h4 class="footer-title" data-i18n="footer-contact-title">LOCATION & CONTACT</h4>
+                    <ul class="footer-contact-list">
+                        <li><i class="fa-solid fa-location-dot"></i> <span data-i18n="footer-addr-val">Cliffside Ocean Vista, South Coast, Korea</span></li>
+                        <li><i class="fa-solid fa-envelope"></i> <span>concierge@aetoshouse.com</span></li>
+                        <li><i class="fa-solid fa-phone"></i> <span>+82 (0)2 123 4567</span></li>
+                    </ul>
                 </div>
             </div>
 
             <hr class="footer-divider">
 
             <div class="footer-bottom">
-                <p class="copyright" data-i18n="footer-copyright">© 2026 AETOS HOUSE. All Rights Reserved. Designed for Luxury Reference Site.</p>
+                <p class="copyright">© 2026 AETOS HOUSE. ALL RIGHTS RESERVED.</p>
+                <p class="footer-designed" data-i18n="footer-designed">DESIGNED FOR LUXURY REFERENCE SITE</p>
             </div>
         </div>
     </footer>
