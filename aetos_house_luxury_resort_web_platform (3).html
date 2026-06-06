@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETOS HOUSE — The Art of Stillness</title>
+    
+    <!-- Google Fonts: Cormorant Garamond (luxury serif), Noto Serif KR (elegant Korean serif), Inter (sharp UI sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#F5EFE6',
+                            200: '#EADBC8',
+                            300: '#DAC0A3',
+                            500: '#C5A880', // Signature Sand Gold
+                            600: '#B0936C',
+                        },
+                        pearl: '#FAF8F5',   // Off-White background
+                        charcoal: '#1A1A1A', // Rich elegant black
+                        clay: '#F3ECE2'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'Noto Serif KR', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Smooth fade-in and scale effects */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Ken burns zoom effect for hero image */
+        @keyframes kenburns {
+            0% { transform: scale(1.0); }
+            100% { transform: scale(1.08); }
+        }
+        .ken-burns {
+            animation: kenburns 20s ease-out forwards;
+        }
+
+        /* Custom scrollbar to keep it sleek */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A880;
+            border-radius: 3px;
+        }
+        
+        /* Custom date picker elegant styling overrides */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(74%) sepia(12%) saturate(1005%) hue-rotate(345deg) brightness(89%) contrast(85%);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="bg-pearl text-charcoal font-sans overflow-x-hidden">
+
+    <!-- Floating Luxury Header (GNB) -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 py-6 px-6 md:px-16 border-b border-white/5 bg-transparent">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="#" class="text-xl md:text-2xl font-serif font-light tracking-[0.25em] text-white transition-colors duration-500" id="logo-text">
+                AETOS HOUSE
+            </a>
+            
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center space-x-12 text-xs uppercase tracking-[0.2em] font-medium text-white transition-colors duration-500" id="nav-links">
+                <a href="#philosophy" class="hover:text-gold-500 transition-colors">Philosophy</a>
+                <a href="#suites" class="hover:text-gold-500 transition-colors">Suites</a>
+                <a href="#experiences" class="hover:text-gold-500 transition-colors">Experiences</a>
+                <a href="#booking" class="hover:text-gold-500 transition-colors">Reservations</a>
+            </nav>
+            
+            <!-- Header CTA & Hamburger -->
+            <div class="flex items-center space-x-6">
+                <a href="#booking" class="border border-white/30 text-white hover:bg-gold-500 hover:border-gold-500 px-5 py-2.5 rounded-none text-xs uppercase tracking-[0.15em] transition-all duration-300 hidden sm:inline-block font-medium" id="header-cta">
+                    Book Now
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="text-white focus:outline-none focus:text-gold-500" aria-label="Toggle Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-charcoal z-40 transform translate-x-full transition-transform duration-500 flex flex-col justify-between p-12">
+        <div class="mt-20">
+            <nav class="flex flex-col space-y-8 font-serif text-3xl font-light text-pearl">
+                <a href="#philosophy" class="mobile-nav-link hover:text-gold-500 transition-colors">Philosophy</a>
+                <a href="#suites" class="mobile-nav-link hover:text-gold-500 transition-colors">Suites & Villas</a>
+                <a href="#experiences" class="mobile-nav-link hover:text-gold-500 transition-colors">Experiences</a>
+                <a href="#booking" class="mobile-nav-link hover:text-gold-500 transition-colors">Reservations</a>
+            </nav>
+        </div>
+        <div>
+            <div class="border-t border-pearl/10 pt-8 text-pearl/50 text-xs tracking-wider space-y-2">
+                <p class="font-sans"><i class="fa-solid fa-location-dot mr-2 text-gold-500"></i> Cliffside Ocean Vista, South Coast</p>
+                <p class="font-sans"><i class="fa-solid fa-envelope mr-2 text-gold-500"></i> concierge@aetoshouse.com</p>
+                <p class="font-sans"><i class="fa-solid fa-phone mr-2 text-gold-500"></i> +82 (0)2 123 4567</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden bg-charcoal flex items-center justify-center">
+        <!-- Visual Background: Ultra-High Resolution Luxury Resort Ocean View -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Luxury Oceanfront Infinity Pool Resort" 
+                 class="w-full h-full object-cover opacity-60 ken-burns">
+            
+            <div class="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-transparent to-charcoal/80"></div>
+        </div>
+        
+        <!-- Hero Content Layer -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto text-pearl">
+            <span class="block text-xs md:text-sm uppercase tracking-[0.4em] mb-4 text-gold-500 font-medium">The Art of Stillness</span>
+            <h1 class="text-5xl md:text-8xl font-serif font-light tracking-wide mb-6">AETOS HOUSE</h1>
+            <p class="text-sm md:text-base font-sans font-light max-w-2xl mx-auto leading-relaxed tracking-wide text-pearl/90">
+                거대한 침묵 속에서 온전한 감각을 일깨우는 시간,<br class="hidden md:inline"> 절벽 위 프라이빗 독채 빌라에서 펼쳐지는 가장 숭고한 쉼의 예술.
+            </p>
+            <div class="mt-12 flex justify-center space-x-6">
+                <a href="#booking" class="bg-gold-500 hover:bg-gold-600 text-charcoal font-semibold px-8 py-4 rounded-none text-xs uppercase tracking-[0.2em] transition-all duration-300">
+                    Reserve Now
+                </a>
+                <a href="#philosophy" class="border border-white/40 text-white hover:border-white px-8 py-4 rounded-none text-xs uppercase tracking-[0.2em] transition-all duration-300 font-medium">
+                    Explore
+                </a>
+            </div>
+        </div>
+        
+        <!-- Animated Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 flex flex-col items-center">
+            <span class="text-[9px] uppercase tracking-[0.3em] text-pearl/50 mb-2 font-medium">Scroll Down</span>
+            <div class="w-[1px] h-12 bg-white/20 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1/2 bg-gold-500 animate-[bounce_2s_infinite]"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Philosophy Section -->
+    <section id="philosophy" class="py-24 md:py-36 px-6 md:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <!-- Text Column -->
+        <div class="lg:col-span-5 space-y-8 reveal">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold">Philosophy</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-light leading-tight">
+                바다와 절벽,<br>그 사이 완벽한 침묵
+            </h2>
+            <div class="w-12 h-[1px] bg-gold-500"></div>
+            <p class="text-[14px] md:text-[15px] text-neutral-600 leading-relaxed font-light font-sans tracking-wide">
+                에이토스 하우스는 복잡한 일상을 등지고 거대한 자연의 고요함에 기대어 쉴 수 있는 단 하나의 시크릿 리조트입니다. 
+                우리가 정의하는 럭셔리는 화려하게 채우는 것이 아닌, 불필요한 모든 것을 완벽히 비우는 것이며 비움으로써 일어나는 감각의 회복을 의미합니다.
+            </p>
+            <p class="text-[14px] md:text-[15px] text-neutral-600 leading-relaxed font-light font-sans tracking-wide">
+                독채 풀빌라에서 느껴지는 고요한 숨소리와, 잔잔한 바람 소리, 파도 소리만이 온전히 당신의 시간을 메우는 기적 같은 휴식을 직접 직조해 보십시오.
+            </p>
+            <div class="pt-4">
+                <span class="font-serif italic text-gold-500 text-lg">“Experience the absolute privilege of quiet.”</span>
+            </div>
+        </div>
+        
+        <!-- Visual Grid Column (Asymmetrical Artful Layout) -->
+        <div class="lg:col-span-7 grid grid-cols-12 gap-6 relative reveal">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-clay rounded-full -z-10 opacity-60"></div>
+            
+            <div class="col-span-8 overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80" 
+                     alt="Minimalist Spa Room" 
+                     class="w-full h-[320px] md:h-[420px] object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+            </div>
+            <div class="col-span-4 mt-12 overflow-hidden group">
+                <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" 
+                     alt="Luxury Dining Setting" 
+                     class="w-full h-[240px] md:h-[320px] object-cover transition-transform duration-[1.5s] group-hover:scale-105">
+            </div>
+        </div>
+    </section>
+
+    <!-- Suites & Villas Showcase Section -->
+    <section id="suites" class="bg-clay/40 py-24 md:py-36 px-6 md:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold">Suites & Villas</span>
+                <h2 class="text-3xl md:text-5xl font-serif font-light mt-4 mb-6">시그니처 프라이빗 스페이스</h2>
+                <p class="text-[14px] text-neutral-500 font-sans font-light tracking-wide">
+                    모든 객실은 독채형 구조로 구성되어 독보적인 프라이버시를 보장합니다. 천연 원목과 천연석, 통유리를 통해 들어오는 아름다운 조망을 품고 있습니다.
+                </p>
+            </div>
+            
+            <!-- Asymmetrical Grid with 3 Premium Rooms -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+                <!-- Suite Item 1: Presidential Ocean Villa -->
+                <div class="bg-pearl shadow-sm border border-gold-300/20 group overflow-hidden flex flex-col justify-between reveal">
+                    <div class="overflow-hidden relative h-[280px] md:h-[320px]">
+                        <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Presidential Ocean Villa" 
+                             class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-charcoal/85 text-gold-500 text-[10px] md:text-xs font-semibold px-4 py-2 uppercase tracking-[0.15em]">
+                            KRW 3,500,000 / Night
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <h3 class="text-xl md:text-2xl font-serif font-light">Presidential Ocean Villa (프레지덴셜)</h3>
+                            <p class="text-[13px] md:text-[14px] text-neutral-600 leading-relaxed font-sans font-light">
+                                리조트 최상단 벼랑 끝에 완벽히 독립된 240평 규모의 대저택형 풀빌라. 대형 복층 야외 공간, 20m 개인 온수 수영장 및 전담 버틀러 서비스를 함께 제공합니다.
+                            </p>
+                            <!-- Specifications list (Sans-serif) -->
+                            <div class="grid grid-cols-2 gap-3 text-[11px] text-neutral-500 border-t border-b border-neutral-200/50 py-4 font-sans font-light">
+                                <p><strong class="font-semibold text-neutral-700">Size:</strong> 793 m² / Multi-level</p>
+                                <p><strong class="font-semibold text-neutral-700">View:</strong> Cliff Edge Ocean View</p>
+                                <p><strong class="font-semibold text-neutral-700">Bed:</strong> 2 Grand King Beds</p>
+                                <p><strong class="font-semibold text-neutral-700">Special:</strong> Personal Butler & Spa Room</p>
+                            </div>
+                        </div>
+                        <button onclick="selectRoom('Presidential Ocean Villa')" class="w-full border border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white transition-all duration-300 py-3 text-xs uppercase tracking-[0.2em] font-semibold font-sans">
+                            Select & Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Suite Item 2: Cliff Pool Villa -->
+                <div class="bg-pearl shadow-sm border border-gold-300/20 group overflow-hidden flex flex-col justify-between reveal">
+                    <div class="overflow-hidden relative h-[280px] md:h-[320px]">
+                        <img src="https://cdn.home-designing.com/wp-content/uploads/2016/07/luxury-bedroom-with-a-panoramic-ocean-view.jpg" 
+                             alt="Cliff Pool Villa" 
+                             class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-charcoal/85 text-gold-500 text-[10px] md:text-xs font-semibold px-4 py-2 uppercase tracking-[0.15em]">
+                            KRW 1,800,000 / Night
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <h3 class="text-xl md:text-2xl font-serif font-light">Cliff Pool Villa (클리프 풀빌라)</h3>
+                            <p class="text-[13px] md:text-[14px] text-neutral-600 leading-relaxed font-sans font-light">
+                                바다를 마주보는 고지대 절벽 위에 세워진 150평 독채형 풀빌라. 끝없이 뻗어 나가는 온수 프라이빗 인피니티 풀에서 황홀한 낙조와 온전한 해방감을 경험해 보십시오.
+                            </p>
+                            <!-- Specifications list (Sans-serif) -->
+                            <div class="grid grid-cols-2 gap-3 text-[11px] text-neutral-500 border-t border-b border-neutral-200/50 py-4 font-sans font-light">
+                                <p><strong class="font-semibold text-neutral-700">Size:</strong> 495 m² / Duplex</p>
+                                <p><strong class="font-semibold text-neutral-700">View:</strong> Sweeping Ocean View</p>
+                                <p><strong class="font-semibold text-neutral-700">Bed:</strong> King Size Luxury Bed</p>
+                                <p><strong class="font-semibold text-neutral-700">Special:</strong> Private Pool & Fire pit</p>
+                            </div>
+                        </div>
+                        <button onclick="selectRoom('Cliff Pool Villa')" class="w-full border border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white transition-all duration-300 py-3 text-xs uppercase tracking-[0.2em] font-semibold font-sans">
+                            Select & Book
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Suite Item 3: Sanctuary Suite -->
+                <div class="bg-pearl shadow-sm border border-gold-300/20 group overflow-hidden flex flex-col justify-between reveal">
+                    <div class="overflow-hidden relative h-[280px] md:h-[320px]">
+                        <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1000&q=80" 
+                             alt="Sanctuary Suite" 
+                             class="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105">
+                        <div class="absolute top-4 right-4 bg-charcoal/85 text-gold-500 text-[10px] md:text-xs font-semibold px-4 py-2 uppercase tracking-[0.15em]">
+                            KRW 1,200,000 / Night
+                        </div>
+                    </div>
+                    <div class="p-6 md:p-8 space-y-6 flex-grow flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <h3 class="text-xl md:text-2xl font-serif font-light">Sanctuary Suite (생츄어리 스위트)</h3>
+                            <p class="text-[13px] md:text-[14px] text-neutral-600 leading-relaxed font-sans font-light">
+                                숲과 고유한 암석의 배치가 일궈내는 웰니스 가치 중심의 독채 스위트. 최고급 편백나무 욕조와 편안히 명상할 수 있는 개별 요가 데크에서 내밀한 사색을 누릴 수 있습니다.
+                            </p>
+                            <!-- Specifications list (Sans-serif) -->
+                            <div class="grid grid-cols-2 gap-3 text-[11px] text-neutral-500 border-t border-b border-neutral-200/50 py-4 font-sans font-light">
+                                <p><strong class="font-semibold text-neutral-700">Size:</strong> 310 m² / Single Floor</p>
+                                <p><strong class="font-semibold text-neutral-700">View:</strong> Forest & Horizon View</p>
+                                <p><strong class="font-semibold text-neutral-700">Bed:</strong> King Size Luxury Bed</p>
+                                <p><strong class="font-semibold text-neutral-700">Special:</strong> Hinoki Bath & Yoga Deck</p>
+                            </div>
+                        </div>
+                        <button onclick="selectRoom('Sanctuary Suite')" class="w-full border border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white transition-all duration-300 py-3 text-xs uppercase tracking-[0.2em] font-semibold font-sans">
+                            Select & Book
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dining & Wellness Section -->
+    <section id="experiences" class="py-24 md:py-36 px-6 md:px-16 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold">Gastronomy & Wellness</span>
+            <h2 class="text-3xl md:text-5xl font-serif font-light mt-4 mb-6">오감으로 채우는 여정</h2>
+            <p class="text-[14px] text-neutral-500 font-sans font-light tracking-wide">
+                미장센 예술에 가까운 파인 다이닝과, 고유한 질감과 향기를 담은 테라피 세션을 통해 신체와 정신의 우아한 대칭을 경험해 보세요.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Dining 1: Fine Dining -->
+            <div class="space-y-6 group reveal">
+                <div class="overflow-hidden relative h-[360px] bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Fine Dining at The Pavilion" 
+                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-[11px] text-gold-500 uppercase tracking-widest font-semibold font-sans">Fine Dining</span>
+                        <h3 class="text-xl md:text-2xl font-serif font-light mt-1">The Pavilion (더 파빌리온)</h3>
+                    </div>
+                </div>
+                <p class="text-[13px] md:text-[14px] text-neutral-600 font-sans font-light leading-relaxed tracking-wide">
+                    수평선 너머로 저무는 석양을 배경으로, 유기농 식재료와 명장 셰프가 빚어내는 파인 다이닝 요리를 제공합니다. 리조트에서 엄선한 한정 페어링 와인 컬렉션을 갖추고 있습니다.
+                </p>
+            </div>
+
+            <!-- Dining 2: Sunset Lounge -->
+            <div class="space-y-6 group reveal">
+                <div class="overflow-hidden relative h-[360px] bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Sunset Lounge Bar" 
+                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-[11px] text-gold-500 uppercase tracking-widest font-semibold font-sans">Lounge & Bar</span>
+                        <h3 class="text-xl md:text-2xl font-serif font-light mt-1">The Solstice Bar (솔스티스)</h3>
+                    </div>
+                </div>
+                <p class="text-[13px] md:text-[14px] text-neutral-600 font-sans font-light leading-relaxed tracking-wide">
+                    파도 소리와 함께 시그니처 칵테일 및 전 세계 희귀 위스키를 경험할 수 있는 야외 오픈에어 라운지 바입니다. 모닥불과 음악이 만나 고혹적인 밤을 장식합니다.
+                </p>
+            </div>
+
+            <!-- Dining 3: Wellness Spa -->
+            <div class="space-y-6 group reveal">
+                <div class="overflow-hidden relative h-[360px] bg-charcoal">
+                    <img src="https://images.unsplash.com/photo-1545048702-79362596cdc9?auto=format&fit=crop&w=1000&q=80" 
+                         alt="Wellness Treatment" 
+                         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-[11px] text-gold-500 uppercase tracking-widest font-semibold font-sans">Wellness & Ritual</span>
+                        <h3 class="text-xl md:text-2xl font-serif font-light mt-1">Ananda Spa Treatment</h3>
+                    </div>
+                </div>
+                <p class="text-[13px] md:text-[14px] text-neutral-600 font-sans font-light leading-relaxed tracking-wide">
+                    시그니처 아로마와 은은한 허브 티의 풍미, 가만히 감아쥐는 스톤 리추얼을 통해 바쁜 일상에서 지쳤던 감정과 근육을 완전히 이완해 주는 웰니스 치유 세션입니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Aesthetic Grid (Reference Value Booster) -->
+    <section class="bg-pearl py-20 px-6 md:px-16 border-t border-neutral-200/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
+                <div class="lg:col-span-4 reveal">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold block mb-2">Aesthetic Moments</span>
+                    <h3 class="text-3xl font-serif font-light">고요함이 머무는 찰나의 흔적들</h3>
+                </div>
+                <div class="lg:col-span-8 reveal">
+                    <p class="text-[14px] text-neutral-500 font-sans font-light leading-relaxed tracking-wide max-w-xl">
+                        에이토스 하우스의 완성도는 눈에 잘 띄지 않는 아주 작은 가구의 비례, 패브릭의 감촉, 공간에 스며든 바람의 양으로 결정됩니다. 오직 이곳에서만 마주할 수 있는 우아한 순간들입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Beautiful Masonry-like Layout for details -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 reveal">
+                <div class="overflow-hidden group h-[220px] md:h-[300px]">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80" 
+                         alt="Linen & Wood" 
+                         class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                </div>
+                <div class="overflow-hidden group h-[220px] md:h-[300px] mt-8">
+                    <img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=500&q=80" 
+                         alt="Stone & Calm pool" 
+                         class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                </div>
+                <div class="overflow-hidden group h-[220px] md:h-[300px]">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=500&q=80" 
+                         alt="Ceramics tea ceremony" 
+                         class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                </div>
+                <div class="overflow-hidden group h-[220px] md:h-[300px] mt-8">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=500&q=80" 
+                         alt="Warm Light" 
+                         class="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Reservation Booking Engine Section -->
+    <section id="booking" class="bg-clay py-24 md:py-36 px-6 md:px-16 relative">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/10 to-transparent pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto bg-pearl p-8 md:p-16 border border-gold-300 shadow-xl relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-[0.3em] text-gold-500 font-semibold">Reservations</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-light mt-2">여정의 시작</h2>
+                <p class="text-xs text-neutral-500 font-sans font-light mt-2 tracking-wide">객실과 예약 기간을 자유롭게 설정하여 견적 및 가상 예약을 완성해 보세요.</p>
+            </div>
+
+            <!-- Reservation Form -->
+            <form id="bookingForm" onsubmit="handleReservationSubmit(event)" class="space-y-8 font-sans">
+                <!-- Row 1: Check-in & Check-out -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col space-y-2">
+                        <label for="checkin" class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold">Check-in Date</label>
+                        <input type="date" id="checkin" required onchange="calculatePrice()"
+                               class="bg-pearl border border-neutral-300 hover:border-gold-500 focus:border-gold-500 text-sm px-4 py-3 rounded-none outline-none transition-all duration-300 font-sans">
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <label for="checkout" class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold">Check-out Date</label>
+                        <input type="date" id="checkout" required onchange="calculatePrice()"
+                               class="bg-pearl border border-neutral-300 hover:border-gold-500 focus:border-gold-500 text-sm px-4 py-3 rounded-none outline-none transition-all duration-300 font-sans">
+                    </div>
+                </div>
+
+                <!-- Row 2: Room Selection & Guests -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col space-y-2">
+                        <label for="roomSelect" class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold">Suites Option</label>
+                        <select id="roomSelect" required onchange="calculatePrice()"
+                                class="bg-pearl border border-neutral-300 hover:border-gold-500 focus:border-gold-500 text-sm px-4 py-3 rounded-none outline-none appearance-none transition-all duration-300 font-sans">
+                            <option value="" disabled selected>객실을 선택해 주십시오</option>
+                            <option value="Presidential Ocean Villa">Presidential Ocean Villa (KRW 3,500,000 / 1박)</option>
+                            <option value="Cliff Pool Villa">Cliff Pool Villa (KRW 1,800,000 / 1박)</option>
+                            <option value="Sanctuary Suite">Sanctuary Suite (KRW 1,200,000 / 1박)</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <label for="guests" class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold">Guests Count</label>
+                        <select id="guests" required
+                                class="bg-pearl border border-neutral-300 hover:border-gold-500 focus:border-gold-500 text-sm px-4 py-3 rounded-none outline-none appearance-none transition-all duration-300 font-sans">
+                            <option value="1">Adult 1</option>
+                            <option value="2" selected>Adults 2</option>
+                            <option value="3">Adults 3</option>
+                            <option value="4">Adults 4 (Presidential & Family Only)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 3: Guest details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col space-y-2">
+                        <label for="guestName" class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold">Contact Name</label>
+                        <input type="text" id="guestName" placeholder="성함을 입력하세요" required
+                               class="bg-pearl border border-neutral-300 hover:border-gold-500 focus:border-gold-500 text-sm px-4 py-3 rounded-none outline-none transition-all duration-300 font-sans">
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <label for="guestPhone" class="text-[11px] uppercase tracking-widest text-neutral-500 font-semibold">Phone Number</label>
+                        <input type="tel" id="guestPhone" placeholder="연락처를 입력하세요" required
+                               class="bg-pearl border border-neutral-300 hover:border-gold-500 focus:border-gold-500 text-sm px-4 py-3 rounded-none outline-none transition-all duration-300 font-sans">
+                    </div>
+                </div>
+
+                <!-- Live Dynamic Pricing Showcase Panel -->
+                <div id="priceShowcase" class="bg-clay/50 border border-gold-300/40 p-6 hidden flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 transition-all duration-500">
+                    <div>
+                        <p class="text-xs text-neutral-500 tracking-wide font-medium font-sans"><span id="daysCount">0</span>박 예약 세부내역:</p>
+                        <h4 class="text-lg font-serif font-medium text-charcoal mt-1"><span id="selectedRoomTitle">선택한 객실</span></h4>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-xs text-neutral-400 block tracking-wide font-sans">Estimated Total Price</span>
+                        <span id="calculatedTotal" class="text-2xl font-serif font-semibold text-gold-500">KRW 0</span>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-charcoal hover:bg-gold-500 text-pearl hover:text-charcoal transition-all duration-500 py-4 text-xs uppercase tracking-[0.25em] font-semibold font-sans">
+                    Confirm Reservation Stay
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Elegantly Styled Modal for Booking Success (Replaces raw alerts) -->
+    <div id="bookingSuccessModal" class="fixed inset-0 bg-charcoal/80 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-500">
+        <div class="bg-pearl border border-gold-300 max-w-lg w-full p-8 md:p-12 relative shadow-2xl scale-95 transform transition-transform duration-500" id="modalCard">
+            <!-- Close Modal -->
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-neutral-400 hover:text-charcoal transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="text-center space-y-6">
+                <div class="w-16 h-16 bg-gold-100 rounded-full flex items-center justify-center mx-auto">
+                    <i class="fa-solid fa-hotel text-gold-500 text-2xl"></i>
+                </div>
+                
+                <h3 class="text-2xl md:text-3xl font-serif font-light text-charcoal">RESERVATION CONFIRMED</h3>
+                <p class="text-xs text-neutral-500 tracking-widest uppercase font-sans font-medium">고귀한 쉼의 여정이 확정되었습니다</p>
+                <div class="w-10 h-[1px] bg-gold-300 mx-auto"></div>
+                
+                <!-- Confirmed Details Ticket Panel (Sans-serif) -->
+                <div class="bg-clay/50 border border-dashed border-gold-300 p-6 text-left space-y-3 text-sm font-sans font-light">
+                    <p class="flex justify-between border-b border-neutral-200/50 pb-2">
+                        <span class="text-neutral-500">Guest Name</span>
+                        <strong class="font-semibold text-charcoal" id="modalGuestName">-</strong>
+                    </p>
+                    <p class="flex justify-between border-b border-neutral-200/50 pb-2">
+                        <span class="text-neutral-500">Selected Suite</span>
+                        <strong class="font-semibold text-charcoal" id="modalRoomType">-</strong>
+                    </p>
+                    <p class="flex justify-between border-b border-neutral-200/50 pb-2">
+                        <span class="text-neutral-500">Check-in</span>
+                        <strong class="font-semibold text-charcoal" id="modalCheckIn">-</strong>
+                    </p>
+                    <p class="flex justify-between border-b border-neutral-200/50 pb-2">
+                        <span class="text-neutral-500">Check-out</span>
+                        <strong class="font-semibold text-charcoal" id="modalCheckOut">-</strong>
+                    </p>
+                    <p class="flex justify-between text-base pt-2 font-serif font-semibold">
+                        <span class="text-neutral-700 font-sans font-semibold">Total Price</span>
+                        <span class="text-gold-500" id="modalTotalPrice">-</span>
+                    </p>
+                </div>
+                
+                <p class="text-xs text-neutral-400 font-sans font-light leading-relaxed">
+                    기재하신 연락처로 컨시어지가 24시간 이내에 직접 디테일 플래닝을 위해 개별 전화를 드립니다.
+                </p>
+                
+                <button onclick="closeBookingModal()" class="w-full bg-charcoal hover:bg-gold-500 text-pearl hover:text-charcoal py-3.5 text-xs uppercase tracking-widest font-semibold font-sans transition-all duration-300">
+                    Done
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimalist Editorial Footer -->
+    <footer class="bg-charcoal text-pearl/80 py-20 px-6 md:px-16 border-t border-white/5 font-sans">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+            <!-- Brand Column -->
+            <div class="md:col-span-1 space-y-6">
+                <span class="text-lg font-serif font-light tracking-[0.25em] text-white">AETOS HOUSE</span>
+                <p class="text-xs text-pearl/50 leading-relaxed font-light">
+                    가장 평화롭고 고요한 시간, 거대하고 정교하게 조율된 오아시스 에이토스 하우스.
+                </p>
+                <div class="flex space-x-4 text-pearl/50">
+                    <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-facebook-f text-base"></i></a>
+                    <a href="#" class="hover:text-gold-500 transition-colors"><i class="fa-brands fa-youtube text-base"></i></a>
+                </div>
+            </div>
+            
+            <!-- Links Column 1 -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-[0.2em] text-gold-500 font-semibold">Navigations</h4>
+                <ul class="space-y-2 text-xs font-light text-pearl/50">
+                    <li><a href="#philosophy" class="hover:text-white transition-colors">Philosophy</a></li>
+                    <li><a href="#suites" class="hover:text-white transition-colors">Suites & Villas</a></li>
+                    <li><a href="#experiences" class="hover:text-white transition-colors">Fine Dining</a></li>
+                    <li><a href="#experiences" class="hover:text-white transition-colors">Wellness Spa</a></li>
+                </ul>
+            </div>
+            
+            <!-- Links Column 2 -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-[0.2em] text-gold-500 font-semibold">Information</h4>
+                <ul class="space-y-2 text-xs font-light text-pearl/50">
+                    <li><a href="#" class="hover:text-white transition-colors">Directions</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Press Kit</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact info Column -->
+            <div class="space-y-4">
+                <h4 class="text-xs uppercase tracking-[0.2em] text-gold-500 font-semibold">Location & Contact</h4>
+                <div class="space-y-3 text-xs font-light text-pearl/50">
+                    <p><i class="fa-solid fa-location-dot mr-2 text-gold-500"></i> Cliffside Ocean Vista, South Coast, Korea</p>
+                    <p><i class="fa-solid fa-envelope mr-2 text-gold-500"></i> concierge@aetoshouse.com</p>
+                    <p><i class="fa-solid fa-phone mr-2 text-gold-500"></i> +82 (0)2 123 4567</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-pearl/30 uppercase tracking-[0.15em] space-y-4 md:space-y-0">
+            <p>© 2026 AETOS HOUSE. All Rights Reserved.</p>
+            <p>Designed for Luxury Reference Site</p>
+        </div>
+    </footer>
+
+    <!-- Script Logic Implementation -->
+    <script>
+        // Set minimum booking date to today dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            const todayStr = new Date().toISOString().split('T')[0];
+            document.getElementById('checkin').min = todayStr;
+            document.getElementById('checkout').min = todayStr;
+        });
+
+        // Interactive Header Scroll Event Listener
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('main-header');
+            const logo = document.getElementById('logo-text');
+            const navLinks = document.getElementById('nav-links');
+            const headerCta = document.getElementById('header-cta');
+            const menuToggle = document.getElementById('menu-toggle');
+            
+            if (window.scrollY > 80) {
+                header.classList.remove('bg-transparent', 'py-6');
+                header.classList.add('bg-pearl/95', 'py-4', 'backdrop-blur-md', 'shadow-md', 'border-neutral-200/55');
+                logo.classList.remove('text-white');
+                logo.classList.add('text-charcoal');
+                navLinks.classList.remove('text-white');
+                navLinks.classList.add('text-charcoal');
+                headerCta.classList.remove('text-white', 'border-white/30');
+                headerCta.classList.add('text-charcoal', 'border-charcoal/30');
+                menuToggle.classList.remove('text-white');
+                menuToggle.classList.add('text-charcoal');
+            } else {
+                header.classList.add('bg-transparent', 'py-6');
+                header.classList.remove('bg-pearl/95', 'py-4', 'backdrop-blur-md', 'shadow-md', 'border-neutral-200/55');
+                logo.classList.add('text-white');
+                logo.classList.remove('text-charcoal');
+                navLinks.classList.add('text-white');
+                navLinks.classList.remove('text-charcoal');
+                headerCta.classList.add('text-white', 'border-white/30');
+                headerCta.classList.remove('text-charcoal', 'border-charcoal/30');
+                menuToggle.classList.add('text-white');
+                menuToggle.classList.remove('text-charcoal');
+            }
+        });
+
+        // Mobile GNB Sidebar Toggle logic
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hIcon = document.getElementById('hamburger-icon');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('translate-x-full');
+                hIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                hIcon.setAttribute('d', 'M4 6h16M4 12h16m-7 6h7');
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMenuOpen) toggleMenu();
+            });
+        });
+
+        // Elegant Scroll Observer for reveal animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Booking calculation core math
+        const pricingMap = {
+            "Presidential Ocean Villa": 3500000,
+            "Cliff Pool Villa": 1800000,
+            "Sanctuary Suite": 1200000
+        };
+
+        // Select a room from the quick action cards
+        function selectRoom(roomName) {
+            const selectEl = document.getElementById('roomSelect');
+            selectEl.value = roomName;
+            
+            // Scroll to booking form
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+            calculatePrice();
+        }
+
+        // Live calculation formulas
+        function calculatePrice() {
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const roomType = document.getElementById('roomSelect').value;
+            const showcasePanel = document.getElementById('priceShowcase');
+
+            if (!checkin || !checkout || !roomType) {
+                showcasePanel.classList.remove('flex');
+                showcasePanel.classList.add('hidden');
+                return;
+            }
+
+            const inDate = new Date(checkin);
+            const outDate = new Date(checkout);
+            const timeDiff = outDate - inDate;
+            const days = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+            // Error validation: Check-out must be after Check-in
+            if (days <= 0) {
+                showcasePanel.classList.remove('flex');
+                showcasePanel.classList.add('hidden');
+                return;
+            }
+
+            const dailyPrice = pricingMap[roomType] || 0;
+            const totalPrice = dailyPrice * days;
+
+            // Render live pricing information
+            document.getElementById('daysCount').innerText = days;
+            document.getElementById('selectedRoomTitle').innerText = `${roomType} (${days} Nights)`;
+            document.getElementById('calculatedTotal').innerText = `KRW ${totalPrice.toLocaleString()}`;
+            
+            showcasePanel.classList.remove('hidden');
+            showcasePanel.classList.add('flex');
+        }
+
+        // Action when form confirms
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guestName').value;
+            const roomType = document.getElementById('roomSelect').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const totalText = document.getElementById('calculatedTotal').innerText;
+
+            const inDate = new Date(checkin);
+            const outDate = new Date(checkout);
+            if ((outDate - inDate) <= 0) {
+                // Prevent form submission with error warning border style instead of raw alerts
+                document.getElementById('checkout').classList.add('border-red-500');
+                return;
+            } else {
+                document.getElementById('checkout').classList.remove('border-red-500');
+            }
+
+            // Fill Custom Success Modal values
+            document.getElementById('modalGuestName').innerText = name;
+            document.getElementById('modalRoomType').innerText = roomType;
+            document.getElementById('modalCheckIn').innerText = checkin;
+            document.getElementById('modalCheckOut').innerText = checkout;
+            document.getElementById('modalTotalPrice').innerText = totalText;
+
+            // Trigger Modal Opening transition
+            const modal = document.getElementById('bookingSuccessModal');
+            const card = document.getElementById('modalCard');
+            
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-95');
+            card.classList.add('scale-100');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('bookingSuccessModal');
+            const card = document.getElementById('modalCard');
+            
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            card.classList.remove('scale-100');
+            card.classList.add('scale-95');
+            
+            // Optionally reset form
+            document.getElementById('bookingForm').reset();
+            document.getElementById('priceShowcase').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
